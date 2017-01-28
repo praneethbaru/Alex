@@ -6,7 +6,7 @@ var port = Number(process.env.PORT || 8080)
 var app = express()
 
 //start
-app.get('/home', function(request, response)
+app.post('/webhook', function(request, response)
 {
 console.log("yedava")
 }
