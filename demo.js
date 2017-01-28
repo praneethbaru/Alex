@@ -2,7 +2,7 @@
 var express = require('express')
 var https = require('https')
 var request = require('request')
-var port = 8080
+var port = Number(process.env.PORT || 8080)
 var app = express()
 
 //start
