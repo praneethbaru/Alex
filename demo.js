@@ -34,7 +34,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
 
 function sendGenericMessage(body,response,weather)
 {
- var img="/1.jpg"
+ var img="1.jpg"
  console.log(img)
 response.writeHead(200, {"Content-Type":"application/json"})
   var json = JSON.stringify({
