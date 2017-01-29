@@ -40,13 +40,15 @@ city= req.body.result.parameters["geo-city"]
     url:"api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid=93e0f7faf62f96d54eb1d5caa28ed417",
     json:true
   }, function(error, res, body)
-          {
+          {console.log("into func")
+           if(!error)
+           {
     if(body!= null)
-    {
+    {console.log("Into body")
     if(body.weather !=null)
-    {
+    {console.log("Into body.weather")
     if(body.weather[0].description!=null)
-    {
+    {console.log("into desc too")
     var weather= "Today, in" +body.city+ " the weather is" +body.weather[0].description+ " and the temperature is " +body.temp
     sendMessage(weather, response)
     }
@@ -54,6 +56,8 @@ city= req.body.result.parameters["geo-city"]
     }
       
     }
+           }//error
+           console.log("suygdod")
   })
   
  
