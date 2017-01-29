@@ -40,7 +40,7 @@ city= req.body.result.parameters["geo-city"]
     url:"api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid=93e0f7faf62f96d54eb1d5caa28ed417",
     json:true
   }, function(error, res, body)
-          {console.log("into func")
+          {console.log(city)
            if(!error)
            {
     if(body!= null)
