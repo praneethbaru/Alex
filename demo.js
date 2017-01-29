@@ -21,7 +21,7 @@ function sendMessage(text, response)
 {
 response.writeHead(200, {"Content-Type":"application/json"})
   var json = JSON.stringify({
-    speech:text
+    speech:text,
     source : "text"
   })
   response.end(json)
