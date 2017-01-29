@@ -34,7 +34,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
 
 function sendGenericMessage(body,response,weather)
 {
- var img="1.jpg"
+ var img="http://www.omgubuntu.co.uk/wp-content/uploads/2013/12/Flat-Weather-Icon-Set.png"
  console.log(img)
 response.writeHead(200, {"Content-Type":"application/json"})
   var json = JSON.stringify({
