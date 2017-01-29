@@ -4,7 +4,11 @@ var https = require('https')
 var request = require('request')
 var port = Number(process.env.PORT || 8080)
 var app = express()
-var bodyparser = require()
+var bodyparser = require(body-parser)
+app.use(bodyparser.urlencoded({
+extended:true
+}))
+app.use(bodyparser.json())
 
 //start
 app.post('/webhook', function(request, response)
