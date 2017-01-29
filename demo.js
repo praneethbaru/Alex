@@ -32,6 +32,30 @@ response.writeHead(200, {"Content-Type":"application/json"})
   response.end(json)
 }
 
+function sendGenericMessage(body,response,weather)
+{
+response.writeHead(200, {"Content-Type":"application/json"})
+  var json = JSON.stringify({
+   data:{
+   "facebook": {
+    "attachment": {
+      "type": "template",
+      "payload": {
+      "template_type":"generic",
+        "elements":[
+           {
+            "title":"Weather in "+body.name,
+            "image_url":"http://openweathermap.org/img/w/"+body.weather.icon+".png",
+            "subtitle":weather
+           ]
+      }
+    }
+   },
+    source : "text"
+  })
+  response.end(json)
+}
+
 function sendWeather(req, response)
 {
   console.log("WEATHER OCCHINDHI")
@@ -50,7 +74,7 @@ city= req.body.result.parameters["geo-city"]
     if(body.weather[0].description!=null)
     {console.log("into desc too")
     var weather= "Today, in " +body.name+ " the weather is " +body.weather[0].description+ " and the temperature is " +body.main.temp
-    sendMessage(weather, response)
+    sendGenericMessage(body, response, weather)
     }
     
     }
