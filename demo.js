@@ -32,10 +32,10 @@ response.writeHead(200, {"Content-Type":"application/json"})
   response.end(json)
 }
 
-function sendWeather(request, response)
+function sendWeather(req, response)
 {
   console.log("WEATHER OCCHINDHI")
-city= request.body.result.parameters["geo-city"]
+city= req.body.result.parameters["geo-city"]
   request({
     url:"api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid=93e0f7faf62f96d54eb1d5caa28ed417",
     json:true
