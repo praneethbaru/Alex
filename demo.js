@@ -49,7 +49,7 @@ city= req.body.result.parameters["geo-city"]
     {console.log("Into body.weather")
     if(body.weather[0].description!=null)
     {console.log("into desc too")
-    var weather= "Today, in" +body.city+ " the weather is" +body.weather[0].description+ " and the temperature is " +body.temp
+    var weather= "Today, in " +body.name+ " the weather is " +body.weather[0].description+ " and the temperature is " +body.main.temp
     sendMessage(weather, response)
     }
     
