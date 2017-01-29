@@ -47,6 +47,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "title":"Weather in "+body.name,
             "image_url":"http://openweathermap.org/img/w/"+body.weather.icon+".png",
             "subtitle":weather
+           }
            ]
       }
     }
