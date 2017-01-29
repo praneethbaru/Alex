@@ -57,7 +57,8 @@ city= req.body.result.parameters["geo-city"]
       
     }
            }//error
-           console.log("suygdod")
+           else
+           console.log(error)
   })
   
  
