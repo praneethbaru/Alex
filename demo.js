@@ -34,6 +34,8 @@ response.writeHead(200, {"Content-Type":"application/json"})
 
 function sendGenericMessage(body,response,weather)
 {
+ var img="http://openweathermap.org/img/w/"+body.weather.icon+".png"
+ console.log(img)
 response.writeHead(200, {"Content-Type":"application/json"})
   var json = JSON.stringify({
    data:{
@@ -45,7 +47,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
         "elements":[
            {
             "title":"Weather in "+body.name,
-            "image_url":"http://openweathermap.org/img/w/"+body.weather.icon+".png",
+            "image_url":img,
             "subtitle":weather
            }//element
            ]//element
