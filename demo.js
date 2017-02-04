@@ -112,7 +112,7 @@ book_query = req.body.result.resolvedQuery
     url:"https://www.googleapis.com/books/v1/volumes?q="+book_query,
     json:true
   }, function(error, res, body)
-          {console.log(city)
+          {
            if(!error)
            {
     if(body!= null)
