@@ -96,7 +96,7 @@ city= req.body.result.parameters["geo-city"]
 function sendBooks(req, response)
 {
   console.log("Book OCCHINDHI")
-book_query = req.body.result.resolvedQuery()
+book_query = req.body.result.resolvedQuery
   if(book_query.includes("#books"))
   {
   book_query = book_query.replace("#books","")
