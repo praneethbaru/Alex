@@ -131,8 +131,7 @@ function sendListMessage(body, req, response)
 var img="http://www.omgubuntu.co.uk/wp-content/uploads/2013/12/Flat-Weather-Icon-Set.png"
  console.log(img)
 response.writeHead(200, {"Content-Type":"application/json"})
-  var stri = function(i, body){ return }
-  console.log(stri)
+  
   var json = JSON.stringify({
    data:{
    "facebook": {
