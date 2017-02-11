@@ -142,9 +142,9 @@ response.writeHead(200, {"Content-Type":"application/json"})
       "template_type":"list",
         "elements": [
            {
-            "title":"",
+            "title":"qwerty",
             "image_url":"",
-            "subtitle": 
+            "subtitle":""
            },
            {
             "title":body.items[0].volumeInfo.title,
