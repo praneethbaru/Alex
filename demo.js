@@ -177,7 +177,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
                             "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
                         }
                     ]                
-                },
+                }
      /*
                 {
                     "title": "Classic Blue T-Shirt",
