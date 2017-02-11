@@ -131,7 +131,7 @@ function sendListMessage(body, req, response)
 var img="http://www.omgubuntu.co.uk/wp-content/uploads/2013/12/Flat-Weather-Icon-Set.png"
  console.log(img)
 response.writeHead(200, {"Content-Type":"application/json"})
-  var stri = "author : " + body.items[0].volumeInfo.authors[0]+ "     Category: "  + body.items[0].volumeInfo.categories[0] +"     Rating: " + body.items[0].volumeInfo.averageRating
+  var stri = function(i){ return "author: " + body.items[i].volumeInfo.authors[0]+ ", Category: "  + body.items[i].volumeInfo.categories[0] +", Rating: " + body.items[i].volumeInfo.averageRating}
   console.log(stri)
   var json = JSON.stringify({
    data:{
@@ -144,13 +144,35 @@ response.writeHead(200, {"Content-Type":"application/json"})
            {
             "title":"Books",
             "image_url":"https://ploum.net/images/livres.jpg",
-            "subtitle":"try"
+            "subtitle":"We have them for you"
            },
            {
             "title":body.items[0].volumeInfo.title,
-            "image_url":"http://books.google.com/books/content?id=wrOQLV6xB-wC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-            "subtitle":stri
+            "image_url":body.items[0].volumeInfo.imageLinks[1],
+            "subtitle":stri(0)
+           },
+          
+          {
+            "title":body.items[1].volumeInfo.title,
+            "image_url":body.items[1].volumeInfo.imageLinks[1],
+            "subtitle":stri(1)
+           },
+          {
+            "title":body.items[2].volumeInfo.title,
+            "image_url":body.items[2].volumeInfo.imageLinks[1],
+            "subtitle":stri(2)
+           },
+          {
+            "title":body.items[3].volumeInfo.title,
+            "image_url":body.items[3].volumeInfo.imageLinks[1],
+            "subtitle":stri(3)
+           },
+          {
+            "title":body.items[4].volumeInfo.title,
+            "image_url":body.items[4].volumeInfo.imageLinks[1],
+            "subtitle":stri(4)
            }
+          
            ]
       }
       }
