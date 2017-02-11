@@ -136,104 +136,25 @@ response.writeHead(200, {"Content-Type":"application/json"})
   var json = JSON.stringify({
    data:{
    "facebook": {
-   "attachment": {
-        "type": "template",
-        "payload": {
-            "template_type": "list",  
-          "elements": [
-                {
-                    "title": body.items[0].volumeInfo.title,
-                    "image_url": "http://books.google.com/books/content?id=wrOQLV6xB-wC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-                    "subtitle": stri,
-                    "buttons": [
-                        {
-                            "title": "View",
-                            "type": "web_url",
-                            "url": "http://books.google.co.in/books/reader?id=wrOQLV6xB-wC&hl=&printsec=frontcover&output=reader&source=gbs_api",
-                            "messenger_extensions": true,
-                            "webview_height_ratio": "tall",
-                            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
-                        }
-                    ]
-                },
-               {
-                    "title": "Classic White T-Shirt",
-                    "image_url": "https://peterssendreceiveapp.ngrok.io/img/white-t-shirt.png",
-                    "subtitle": "100% Cotton, 200% Comfortable",
-                    "default_action": {
-                        "type": "web_url",
-                        "url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
-                        "messenger_extensions": true,
-                        "webview_height_ratio": "tall",
-                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                    },
-                    "buttons": [
-                        {
-                            "title": "Shop Now",
-                            "type": "web_url",
-                            "url": "https://peterssendreceiveapp.ngrok.io/shop?item=100",
-                            "messenger_extensions": true,
-                            "webview_height_ratio": "tall",
-                            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
-                        }
-                    ]                
-                }
-     /*
-                {
-                    "title": "Classic Blue T-Shirt",
-                    "image_url": "https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png",
-                    "subtitle": "100% Cotton, 200% Comfortable",
-                    "default_action": {
-                        "type": "web_url",
-                        "url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
-                        "messenger_extensions": true,
-                        "webview_height_ratio": "tall",
-                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                    },
-                    "buttons": [
-                        {
-                            "title": "Shop Now",
-                            "type": "web_url",
-                            "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
-                            "messenger_extensions": true,
-                            "webview_height_ratio": "tall",
-                            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
-                        }
-                    ]                
-                },
-                {
-                    "title": "Classic Black T-Shirt",
-                    "image_url": "https://peterssendreceiveapp.ngrok.io/img/black-t-shirt.png",
-                    "subtitle": "100% Cotton, 200% Comfortable",
-                    "default_action": {
-                        "type": "web_url",
-                        "url": "https://peterssendreceiveapp.ngrok.io/view?item=102",
-                        "messenger_extensions": true,
-                        "webview_height_ratio": "tall",
-                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                    },
-                    "buttons": [
-                        {
-                            "title": "Shop Now",
-                            "type": "web_url",
-                            "url": "https://peterssendreceiveapp.ngrok.io/shop?item=102",
-                            "messenger_extensions": true,
-                            "webview_height_ratio": "tall",
-                            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
-                        }
-                    ]                
-                }
-            ],
-             "buttons": [
-                {
-                    "title": "View More",
-                    "type": "postback",
-                    "payload": "payload"                        
-                }*/
-            ]  
-        }
-    }//attachment
-    }//facebook
+    "attachment": {
+      "type": "template",
+      "payload": {
+      "template_type":"list",
+        "elements": [
+           {
+            "title":"Weather in hyderabad",
+            "image_url":"https://www.powr.io/plugins/image-slider/standalone?id=8345836&",
+            "subtitle":"it always"
+           },
+           {
+            "title":"Weather in hyderabad",
+            "image_url":"https://www.powr.io/plugins/image-slider/standalone?id=8345836&",
+            "subtitle":"it always"
+           }
+           ]
+      }
+      }
+    }
    },//data
     source : "text"
   })//json
