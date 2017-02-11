@@ -140,7 +140,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "template_type": "list",
             "elements": [
                 {
-                    "title": body.items[0].volumeinfo.title,
+                    "title": body.items[0].volumeInfo.title,
                     "image_url": "http://books.google.com/books/content?id=wrOQLV6xB-wC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
                     "subtitle": "author : " + body.items[0].volumeinfo.authors[0]+ "/nCategory: "  + body.items[0].volumeinfo.categories[0] +"/nRating: " + body.items[0].volumeinfo.averageRating 
                      ,
