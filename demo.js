@@ -131,7 +131,7 @@ function sendListMessage(body, req, response)
 var img="http://www.omgubuntu.co.uk/wp-content/uploads/2013/12/Flat-Weather-Icon-Set.png"
  console.log(img)
 response.writeHead(200, {"Content-Type":"application/json"})
-  var stri = function(i, body){ return "author: " + body.items[i].volumeInfo.authors[0]+ ", Category: "  + body.items[i].volumeInfo.categories[0] +", Rating: " + body.items[i].volumeInfo.averageRating}
+  var stri = function(i, body){ return }
   console.log(stri)
   var json = JSON.stringify({
    data:{
@@ -149,28 +149,28 @@ response.writeHead(200, {"Content-Type":"application/json"})
            {
             "title":body.items[0].volumeInfo.title,
             "image_url":body.items[0].volumeInfo.imageLinks[1],
-            "subtitle":stri(0)
+            "subtitle":"author: " + body.items[0].volumeInfo.authors[0]+ ", Category: "  + body.items[0].volumeInfo.categories[0] +", Rating: " + body.items[0].volumeInfo.averageRating
            },
           
           {
             "title":body.items[1].volumeInfo.title,
             "image_url":body.items[1].volumeInfo.imageLinks[1],
-            "subtitle":stri(1)
+            "subtitle":"author: " + body.items[1].volumeInfo.authors[0]+ ", Category: "  + body.items[1].volumeInfo.categories[0] +", Rating: " + body.items[1].volumeInfo.averageRating
            },
           {
             "title":body.items[2].volumeInfo.title,
             "image_url":body.items[2].volumeInfo.imageLinks[1],
-            "subtitle":stri(2)
+            "subtitle":"author: " + body.items[2].volumeInfo.authors[0]+ ", Category: "  + body.items[2].volumeInfo.categories[0] +", Rating: " + body.items[2].volumeInfo.averageRating
            },
           {
             "title":body.items[3].volumeInfo.title,
             "image_url":body.items[3].volumeInfo.imageLinks[1],
-            "subtitle":stri(3)
+            "subtitle":"author: " + body.items[3].volumeInfo.authors[0]+ ", Category: "  + body.items[3].volumeInfo.categories[0] +", Rating: " + body.items[3].volumeInfo.averageRating
            },
           {
             "title":body.items[4].volumeInfo.title,
             "image_url":body.items[4].volumeInfo.imageLinks[1],
-            "subtitle":stri(4)
+            "subtitle":"author: " + body.items[4].volumeInfo.authors[0]+ ", Category: "  + body.items[4].volumeInfo.categories[0] +", Rating: " + body.items[4].volumeInfo.averageRating
            }
           
            ]
