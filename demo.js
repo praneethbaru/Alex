@@ -142,9 +142,9 @@ response.writeHead(200, {"Content-Type":"application/json"})
       "template_type":"list",
         "elements": [
            {
-            "title":"qwerty",
-            "image_url":"http://books.google.com/books/content?id=wrOQLV6xB-wC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-            "subtitle":""
+            "title":"Books",
+            "image_url":"https://ploum.net/images/livres.jpg",
+            "subtitle":"try"
            },
            {
             "title":body.items[0].volumeInfo.title,
