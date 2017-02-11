@@ -142,14 +142,14 @@ response.writeHead(200, {"Content-Type":"application/json"})
       "template_type":"list",
         "elements": [
            {
-            "title":body.items[0].volumeInfo.title,
-            "image_url":"http://books.google.com/books/content?id=wrOQLV6xB-wC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-            "subtitle": stri
+            "title":"",
+            "image_url":"",
+            "subtitle": 
            },
            {
-            "title":"Weather in hyderabad",
-            "image_url":"https://www.powr.io/plugins/image-slider/standalone?id=8345836&",
-            "subtitle":"it always"
+            "title":body.items[0].volumeInfo.title,
+            "image_url":"http://books.google.com/books/content?id=wrOQLV6xB-wC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+            "subtitle":stri
            }
            ]
       }
