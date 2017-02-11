@@ -131,19 +131,20 @@ function sendListMessage(body, req, response)
 var img="http://www.omgubuntu.co.uk/wp-content/uploads/2013/12/Flat-Weather-Icon-Set.png"
  console.log(img)
 response.writeHead(200, {"Content-Type":"application/json"})
+  var stri = "author : " + body.items[0].volumeInfo.authors[0]+ "/nCategory: "  + body.items[0].volumeInfo.categories[0] +"/nRating: " + body.items[0].volumeInfo.averageRating
+  console.log(stri)
   var json = JSON.stringify({
    data:{
    "facebook": {
    "attachment": {
         "type": "template",
         "payload": {
-            "template_type": "list",
-            "elements": [
+            "template_type": "list",  
+          "elements": [
                 {
                     "title": body.items[0].volumeInfo.title,
                     "image_url": "http://books.google.com/books/content?id=wrOQLV6xB-wC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-                    "subtitle": "author : " + body.items[0].volumeInfo.authors[0]+ "/nCategory: "  + body.items[0].volumeInfo.categories[0] +"/nRating: " + body.items[0].volumeInfo.averageRating 
-                     ,
+                    "subtitle": stri,
                     "buttons": [
                         {
                             "title": "View",
