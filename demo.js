@@ -144,7 +144,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
            {
             "title":"Weather in hyderabad",
             "image_url":"https://www.powr.io/plugins/image-slider/standalone?id=8345836&",
-            "subtitle":"it always"
+            "subtitle": stri
            },
            {
             "title":"Weather in hyderabad",
