@@ -156,7 +156,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
                         }
                     ]
                 }
-              /*  {
+               {
                     "title": "Classic White T-Shirt",
                     "image_url": "https://peterssendreceiveapp.ngrok.io/img/white-t-shirt.png",
                     "subtitle": "100% Cotton, 200% Comfortable",
@@ -178,6 +178,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
                         }
                     ]                
                 },
+     /*
                 {
                     "title": "Classic Blue T-Shirt",
                     "image_url": "https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png",
