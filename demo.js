@@ -149,7 +149,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "title":body.items[0].volumeInfo.title,
             "image_url":body.items[0].volumeInfo.imageLinks[1],
             "subtitle":"author: " + body.items[0].volumeInfo.authors[0]+ ", Category: "  + body.items[0].volumeInfo.categories[0] +", Rating: " + body.items[0].volumeInfo.averageRating
-           }
+           },
           
           {
             "title":body.items[1].volumeInfo.title,
