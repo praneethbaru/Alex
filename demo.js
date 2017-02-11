@@ -155,12 +155,12 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "title":body.items[1].volumeInfo.title,
             "image_url":body.items[1].volumeInfo.imageLinks[1],
             "subtitle":"author: " + body.items[1].volumeInfo.authors[0]+ ", Category: "  + body.items[1].volumeInfo.categories[0] +", Rating: " + body.items[1].volumeInfo.averageRating
-           },
+           }/*,
           {
             "title":body.items[2].volumeInfo.title,
             "image_url":body.items[2].volumeInfo.imageLinks[1],
             "subtitle":"author: " + body.items[2].volumeInfo.authors[0]+ ", Category: "  + body.items[2].volumeInfo.categories[0] +", Rating: " + body.items[2].volumeInfo.averageRating
-           }/*,
+           },
           {
             "title":body.items[3].volumeInfo.title,
             "image_url":body.items[3].volumeInfo.imageLinks[1],
