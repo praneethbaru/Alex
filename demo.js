@@ -155,7 +155,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
                             "fallback_url": "https://peterssendreceiveapp.ngrok.io/"                        
                         }
                     ]
-                }
+                },
                {
                     "title": "Classic White T-Shirt",
                     "image_url": "https://peterssendreceiveapp.ngrok.io/img/white-t-shirt.png",
