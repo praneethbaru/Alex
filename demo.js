@@ -138,6 +138,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
            })
   console.log(inko)
   body.items.forEach ( function(ink) {
+    i=0
     if(ink.volumeInfo.authors!= null)
     {
   console.log(ink.volumeInfo.title+" "+ ink.volumeInfo.authors)
@@ -146,6 +147,9 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "subtitle":"author: " + ink.volumeInfo.authors+ ", Category: "  + ink.volumeInfo.categories +", Rating: " + ink.volumeInfo.averageRating
   })
    }
+    i++
+    if(i==5)
+    break
   }
   )
   var json = JSON.stringify({
