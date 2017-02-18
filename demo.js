@@ -139,7 +139,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
   console.log(inko)
   body.items.forEach ( function(ink) {
     i=0
-    if(ink.volumeInfo.authors!= null)
+    if(ink.volumeInfo.authors!= null && i<5)
     {
   console.log(ink.volumeInfo.title+" "+ ink.volumeInfo.authors)
    inko = inko +"," + JSON.stringify({"title":ink.volumeInfo.title,
@@ -148,8 +148,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
   })
    }
     i++
-    if(i==5)
-    break
+   
   }
   )
   var json = JSON.stringify({
