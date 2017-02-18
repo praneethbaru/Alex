@@ -136,11 +136,16 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "image_url":"https://ploum.net/images/livres.jpg",
             "subtitle":"We have them for you"
            })
+  inko += {
+            "title":"Books",
+            "image_url":"https://ploum.net/images/livres.jpg",
+            "subtitle":"We have them for you"
+           }
   console.log(inko)
   var i=0
-  body.items.forEach ( function(ink) {
+/*  body.items.forEach ( function(ink) {
     
-    if(ink.volumeInfo.authors!= null && i<1)
+    if(ink.volumeInfo.authors!= null && i<3)
     {
   console.log(ink.volumeInfo.title+" "+ ink.volumeInfo.authors)
    inko = inko +"," + JSON.stringify({"title":ink.volumeInfo.title,
@@ -151,14 +156,14 @@ response.writeHead(200, {"Content-Type":"application/json"})
     i++
    
   }
-  )
+  )*/
   var json = JSON.stringify({
    data:{
    "facebook": {
     "attachment": {
       "type": "template",
       "payload": {
-      "template_type":"generic",
+      "template_type":"list",
         "elements": [ 
           JSON.parse(inko)
         /*   {
