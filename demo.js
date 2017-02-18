@@ -159,7 +159,8 @@ response.writeHead(200, {"Content-Type":"application/json"})
       "type": "template",
       "payload": {
       "template_type":"generic",
-        "elements": [ inko
+        "elements": [ 
+          JSON.parse(inko)
         /*   {
             "title":"Books",
             "image_url":"https://ploum.net/images/livres.jpg",
