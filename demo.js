@@ -128,8 +128,8 @@ book_query = req.body.result.resolvedQuery
 
 function sendListMessage(body, req, response)
 {
-var img="http://www.omgubuntu.co.uk/wp-content/uploads/2013/12/Flat-Weather-Icon-Set.png"
- console.log(img)
+//var img="http://www.omgubuntu.co.uk/wp-content/uploads/2013/12/Flat-Weather-Icon-Set.png"
+ console.log("Entry into list message succesfull...")
 response.writeHead(200, {"Content-Type":"application/json"})
   
   var json = JSON.stringify({
