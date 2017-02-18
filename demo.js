@@ -149,8 +149,9 @@ response.writeHead(200, {"Content-Type":"application/json"})
              "subtitle":"author: " + ink.volumeInfo.authors+ ", Category: "  + ink.volumeInfo.categories +", Rating: " + ink.volumeInfo.averageRating,
            "default_action": {
               "type": "web_url",
-              "url": ink.volumeInfo.infoLink,
+              "url": "https://www.google.com/",
               "messenger_extensions": true,
+             "webview_height_ratio": "compact",
               "fallback_url": "https://www.google.com/"
             }
   })
