@@ -149,7 +149,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
              "subtitle":"author: " + ink.volumeInfo.authors+ ", Category: "  + ink.volumeInfo.categories +", Rating: " + ink.volumeInfo.averageRating,
            "default_action": {
               "type": "web_url",
-              "url": "https://www.google.com/",
+              "url": ink.volumeInfo.infoLink,
                }
   })
    }
