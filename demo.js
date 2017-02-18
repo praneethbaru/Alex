@@ -151,7 +151,6 @@ response.writeHead(200, {"Content-Type":"application/json"})
               "type": "web_url",
               "url": ink.volumeInfo.infoLink,
               "messenger_extensions": true,
-              "webview_height_ratio": "tall",
               "fallback_url": "https://www.google.com/"
             }
   })
