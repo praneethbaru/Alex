@@ -131,16 +131,15 @@ function sendListMessage(body, req, response)
 //var img="http://www.omgubuntu.co.uk/wp-content/uploads/2013/12/Flat-Weather-Icon-Set.png"
  console.log("Entry into list message succesfull...")
 response.writeHead(200, {"Content-Type":"application/json"})
-  var inko = JSON.stringify({
+  var inko = [{
             "title":"Books",
             "image_url":"https://ploum.net/images/livres.jpg",
             "subtitle":"We have them for you"
-           })
-  inko +=","+JSON.stringify({
+           },{
             "title":"Books",
             "image_url":"https://ploum.net/images/livres.jpg",
             "subtitle":"We have them for you"
-           })
+           }]
   console.log(inko)
   var i=0
 /*  body.items.forEach ( function(ink) {
@@ -164,7 +163,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
       "type": "template",
       "payload": {
       "template_type":"list",
-        "elements": JSON.parse(inko)
+        "elements":inko
         /*   {
             "title":"Books",
             "image_url":"https://ploum.net/images/livres.jpg",
