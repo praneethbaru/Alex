@@ -139,10 +139,10 @@ response.writeHead(200, {"Content-Type":"application/json"})
   body.items.forEach ( function(ink) {
     if(ink.volumeInfo.authors!= null)
     {
-  console.log(ink.volumeInfo.title+" "+ ink.volumeInfo.authors[0])
+  console.log(ink.volumeInfo.title+" "+ ink.volumeInfo.authors)
    inko = inko + {"title":ink.volumeInfo.title,
            // "image_url":body.items[0].volumeInfo.imageLinks[1],
-            "subtitle":"author: " + ink.volumeInfo.authors[0]+ ", Category: "  + ink.volumeInfo.categories[0] +", Rating: " + ink.volumeInfo.averageRating
+            "subtitle":"author: " + ink.volumeInfo.authors+ ", Category: "  + ink.volumeInfo.categories[0] +", Rating: " + ink.volumeInfo.averageRating
   }
    }
   }
