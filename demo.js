@@ -135,13 +135,14 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "title":"Books",
             "image_url":"https://ploum.net/images/livres.jpg",
             "subtitle":"We have them for you"
-           },{
-            "title":"Books",
-            "image_url":"https://ploum.net/images/livres.jpg",
-            "subtitle":"We have them for you"
            }]
   console.log(inko)
   var i=0
+  inko.push({
+            "title":"Books",
+            "image_url":"https://ploum.net/images/livres.jpg",
+            "subtitle":"We have them for you"
+           })
 /*  body.items.forEach ( function(ink) {
     
     if(ink.volumeInfo.authors!= null && i<3)
