@@ -131,11 +131,12 @@ function sendListMessage(body, req, response)
 //var img="http://www.omgubuntu.co.uk/wp-content/uploads/2013/12/Flat-Weather-Icon-Set.png"
  console.log("Entry into list message succesfull...")
 response.writeHead(200, {"Content-Type":"application/json"})
-  var inko = {
+  var inko = JSON.stringify({
             "title":"Books",
             "image_url":"https://ploum.net/images/livres.jpg",
             "subtitle":"We have them for you"
-           }
+           })
+  console.log(inko)
   body.items.forEach ( function(ink) {
     if(ink.volumeInfo.authors!= null)
     {
