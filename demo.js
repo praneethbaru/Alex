@@ -136,7 +136,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "image_url":"https://ploum.net/images/livres.jpg",
             "subtitle":"We have them for you"
            })
-  inko += ","+JSON.stringify({
+  inko +=JSON.stringify({
             "title":"Books",
             "image_url":"https://ploum.net/images/livres.jpg",
             "subtitle":"We have them for you"
