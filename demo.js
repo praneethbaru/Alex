@@ -150,10 +150,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
            "default_action": {
               "type": "web_url",
               "url": "https://www.google.com/",
-              "messenger_extensions": true,
-             "webview_height_ratio": "compact",
-              "fallback_url": "https://www.google.com/"
-            }
+               }
   })
    }
     i++
