@@ -13,7 +13,7 @@ app.use(bodyparser.json())
 //start
 app.post('/webhook', function(request, response)
 {
-  console.log("yedava")
+  console.log("Entry into app.post successful......")
   if(request.body.result.action=="weather")
   {
   sendWeather(request,response);
@@ -38,7 +38,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
 
 function sendGenericMessage(body,response,weather)
 {
- var img="http://www.omgubuntu.co.uk/wp-content/uploads/2013/12/Flat-Weather-Icon-Set.png"
+ var img="ENTRY INTO GENERIC MESSAGE SUCCESSFUL..."
  console.log(img)
 response.writeHead(200, {"Content-Type":"application/json"})
   var json = JSON.stringify({
@@ -99,7 +99,7 @@ function sendBooks(req, response)
 book_query = req.body.result.resolvedQuery
   if(book_query.includes("#books"))
   {
-  book_query = book_query.replace("#books","")
+  book_query = book_query.replace("#books ","")
   }
   else if(book_query.includes("Tell me about the book named"))
   {
