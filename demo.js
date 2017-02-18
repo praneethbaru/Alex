@@ -137,9 +137,10 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "subtitle":"We have them for you"
            }]
   console.log(inko)
+  var i;
     body.items.forEach ( function(ink) {
     
-    if(ink.volumeInfo.authors!= null )
+    if(ink.volumeInfo.authors!= null && i< 7 )
     {
   console.log(ink.volumeInfo.title+" "+ ink.volumeInfo.authors)
   inko.push({
@@ -148,7 +149,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
              "subtitle":"author: " + ink.volumeInfo.authors+ ", Category: "  + ink.volumeInfo.categories +", Rating: " + ink.volumeInfo.averageRating
            })
    }
-    
+    i++
   }
   )
   var json = JSON.stringify({
