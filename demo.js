@@ -147,13 +147,13 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "title":ink.volumeInfo.title,
             "image_url":ink.volumeInfo.imageLinks.thumbnail,
              "subtitle":"author: " + ink.volumeInfo.authors+ ", Category: "  + ink.volumeInfo.categories +", Rating: " + ink.volumeInfo.averageRating,
-             "default_action": {
+             /*"default_action": {
               "type": "web_url",
               "url": ink.volumeInfo.infoLink,
               "messenger_extensions": true,
               "webview_height_ratio": "tall",
               //"fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-            }
+            }*/
   })
    }
     i++
