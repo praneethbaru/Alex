@@ -136,7 +136,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "image_url":"https://ploum.net/images/livres.jpg",
             "subtitle":"We have them for you"
            })
-  inko +=JSON.stringify({
+  inko +=","+JSON.stringify({
             "title":"Books",
             "image_url":"https://ploum.net/images/livres.jpg",
             "subtitle":"We have them for you"
@@ -164,8 +164,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
       "type": "template",
       "payload": {
       "template_type":"list",
-        "elements": [ 
-          JSON.parse(inko)
+        "elements": JSON.parse(inko)
         /*   {
             "title":"Books",
             "image_url":"https://ploum.net/images/livres.jpg",
@@ -198,7 +197,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "subtitle":"author: " + body.items[4].volumeInfo.authors[0]+ ", Category: "  + body.items[4].volumeInfo.categories[0] +", Rating: " + body.items[4].volumeInfo.averageRating
            }
           */
-           ]
+           
       }
       }
     }
