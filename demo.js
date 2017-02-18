@@ -140,7 +140,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
   var i=0;
     body.items.forEach ( function(ink) {
     
-    if(ink.volumeInfo.authors!= null && i< 10 )
+    if(ink.volumeInfo.authors!= null && i< 8 )
     {
   console.log(ink.volumeInfo.title+" "+ ink.volumeInfo.authors)
   inko.push({
