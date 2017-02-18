@@ -137,7 +137,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "subtitle":"We have them for you"
            }]
   console.log(inko)
-  var i;
+  var i=0;
     body.items.forEach ( function(ink) {
     
     if(ink.volumeInfo.authors!= null && i< 7 )
