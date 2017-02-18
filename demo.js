@@ -137,20 +137,18 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "subtitle":"We have them for you"
            }]
   console.log(inko)
-  var i=0
     body.items.forEach ( function(ink) {
     
-    if(ink.volumeInfo.authors!= null && i<3)
+    if(ink.volumeInfo.authors!= null )
     {
   console.log(ink.volumeInfo.title+" "+ ink.volumeInfo.authors)
   inko.push({
             "title":ink.volumeInfo.title,
-            "image_url":body.items[0].volumeInfo.imageLinks[1],
+            "image_url":body.items[0].volumeInfo.imageLinks[0],
              "subtitle":"author: " + ink.volumeInfo.authors+ ", Category: "  + ink.volumeInfo.categories +", Rating: " + ink.volumeInfo.averageRating
            })
    }
-    i++
-   
+    
   }
   )
   var json = JSON.stringify({
