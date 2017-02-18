@@ -51,7 +51,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
         "elements":[
            {
             "title":"Weather in "+body.name,
-            "image_url":img,
+            "image_url":"http://www.omgubuntu.co.uk/wp-content/uploads/2013/12/Flat-Weather-Icon-Set.png",
             "subtitle":weather
            }//element
            ]//element
