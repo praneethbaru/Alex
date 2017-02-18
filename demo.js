@@ -196,7 +196,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
   })//json
   //console.log("def")
   
-  console.log(json)
+  console.log(inko)
   response.end(json)
 }
 
