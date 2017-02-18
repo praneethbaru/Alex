@@ -180,10 +180,10 @@ response.writeHead(200, {"Content-Type":"application/json"})
     source : "text"
   })//json*/
   //console.log("def")
-  for each ( ink in body.items)
-  {
+  body.items.forEach ( function() {
   console.log(ink.volumeInfo.title+" "+ ink.volumeInfo.authors[0])
   }
+  )
   console.log(json)
   response.end(json)
 }
