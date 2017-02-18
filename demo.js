@@ -145,7 +145,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
   console.log(ink.volumeInfo.title+" "+ ink.volumeInfo.authors)
   inko.push({
             "title":ink.volumeInfo.title,
-            "image_url":body.items[0].volumeInfo.imageLinks.thumbnail,
+            "image_url":ink.volumeInfo.imageLinks.thumbnail,
              "subtitle":"author: " + ink.volumeInfo.authors+ ", Category: "  + ink.volumeInfo.categories +", Rating: " + ink.volumeInfo.averageRating
            })
    }
