@@ -132,7 +132,7 @@ function sendListMessage(body, req, response)
  console.log("Entry into list message succesfull...")
 response.writeHead(200, {"Content-Type":"application/json"})
   
-  var json = JSON.stringify({
+ /* var json = JSON.stringify({
    data:{
    "facebook": {
     "attachment": {
@@ -171,15 +171,19 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "image_url":body.items[4].volumeInfo.imageLinks[1],
             "subtitle":"author: " + body.items[4].volumeInfo.authors[0]+ ", Category: "  + body.items[4].volumeInfo.categories[0] +", Rating: " + body.items[4].volumeInfo.averageRating
            }
-          */
+          
            ]
       }
       }
     }
    },//data
     source : "text"
-  })//json
+  })//json*/
   //console.log("def")
+  for each ( ink in body.items)
+  {
+  console.log(ink.volumeInfo.title+" "+ ink.volumeInfo.authors[0])
+  }
   console.log(json)
   response.end(json)
 }
