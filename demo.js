@@ -141,10 +141,10 @@ response.writeHead(200, {"Content-Type":"application/json"})
     if(ink.volumeInfo.authors!= null)
     {
   console.log(ink.volumeInfo.title+" "+ ink.volumeInfo.authors)
-   inko = inko + {"title":ink.volumeInfo.title,
+   inko = inko + JSON.stringify({"title":ink.volumeInfo.title,
            // "image_url":body.items[0].volumeInfo.imageLinks[1],
             "subtitle":"author: " + ink.volumeInfo.authors+ ", Category: "  + ink.volumeInfo.categories +", Rating: " + ink.volumeInfo.averageRating
-  }
+  })
    }
   }
   )
