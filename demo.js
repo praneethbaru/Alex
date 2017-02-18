@@ -154,7 +154,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
     "attachment": {
       "type": "template",
       "payload": {
-      "template_type":"list",
+      "template_type":"generic",
         "elements": [ inko
         /*   {
             "title":"Books",
