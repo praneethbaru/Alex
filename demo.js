@@ -138,32 +138,28 @@ response.writeHead(200, {"Content-Type":"application/json"})
            }]
   console.log(inko)
   var i=0
-  inko.push({
-            "title":"Books",
-            "image_url":"https://ploum.net/images/livres.jpg",
-            "subtitle":"We have them for you"
-           })
-/*  body.items.forEach ( function(ink) {
+    body.items.forEach ( function(ink) {
     
     if(ink.volumeInfo.authors!= null && i<3)
     {
   console.log(ink.volumeInfo.title+" "+ ink.volumeInfo.authors)
-   inko = inko +"," + JSON.stringify({"title":ink.volumeInfo.title,
-           // "image_url":body.items[0].volumeInfo.imageLinks[1],
-            "subtitle":"author: " + ink.volumeInfo.authors+ ", Category: "  + ink.volumeInfo.categories +", Rating: " + ink.volumeInfo.averageRating
-  })
+  inko.push({
+            "title":ink.volumeInfo.title,
+            "image_url":body.items[0].volumeInfo.imageLinks[1],
+             "subtitle":"author: " + ink.volumeInfo.authors+ ", Category: "  + ink.volumeInfo.categories +", Rating: " + ink.volumeInfo.averageRating
+           })
    }
     i++
    
   }
-  )*/
+  )
   var json = JSON.stringify({
    data:{
    "facebook": {
     "attachment": {
       "type": "template",
       "payload": {
-      "template_type":"list",
+      "template_type":"generic",
         "elements":inko
         /*   {
             "title":"Books",
