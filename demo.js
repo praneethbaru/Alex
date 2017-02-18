@@ -53,6 +53,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "title":"Weather in "+body.name,
             "image_url":"http://www.omgubuntu.co.uk/wp-content/uploads/2013/12/Flat-Weather-Icon-Set.png",
             "subtitle":weather
+                }
            }//element
            ]//element
       }//payload
@@ -147,7 +148,14 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "title":ink.volumeInfo.title,
             "image_url":ink.volumeInfo.imageLinks.thumbnail,
              "subtitle":"author: " + ink.volumeInfo.authors+ ", Category: "  + ink.volumeInfo.categories +", Rating: " + ink.volumeInfo.averageRating
-           })
+             "default_action": {
+              "type": "web_url",
+              "url": ink.volumeInfo.infoLink,
+              "messenger_extensions": true,
+              "webview_height_ratio": "tall",
+              //"fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+            }
+  })
    }
     i++
   }
