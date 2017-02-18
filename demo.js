@@ -144,7 +144,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
    inko = inko + JSON.stringify({"title":ink.volumeInfo.title,
            // "image_url":body.items[0].volumeInfo.imageLinks[1],
             "subtitle":"author: " + ink.volumeInfo.authors+ ", Category: "  + ink.volumeInfo.categories +", Rating: " + ink.volumeInfo.averageRating
-  })
+  })+","
    }
   }
   )
