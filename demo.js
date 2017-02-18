@@ -137,8 +137,9 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "subtitle":"We have them for you"
            })
   console.log(inko)
+  var i=0
   body.items.forEach ( function(ink) {
-    i=0
+    
     if(ink.volumeInfo.authors!= null && i<5)
     {
   console.log(ink.volumeInfo.title+" "+ ink.volumeInfo.authors)
