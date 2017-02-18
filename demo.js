@@ -131,16 +131,28 @@ function sendListMessage(body, req, response)
 //var img="http://www.omgubuntu.co.uk/wp-content/uploads/2013/12/Flat-Weather-Icon-Set.png"
  console.log("Entry into list message succesfull...")
 response.writeHead(200, {"Content-Type":"application/json"})
-  
- /* var json = JSON.stringify({
+  var inko = {
+            "title":"Books",
+            "image_url":"https://ploum.net/images/livres.jpg",
+            "subtitle":"We have them for you"
+           }
+  body.items.forEach ( function(ink) {
+  console.log(ink.volumeInfo.title+" "+ ink.volumeInfo.authors[0])
+   inko = inko + {"title":ink.volumeInfo.title,
+           // "image_url":body.items[0].volumeInfo.imageLinks[1],
+            "subtitle":"author: " + ink.volumeInfo.authors[0]+ ", Category: "  + ink.volumeInfo.categories[0] +", Rating: " + ink.volumeInfo.averageRating
+  }
+  }
+  )
+  var json = JSON.stringify({
    data:{
    "facebook": {
     "attachment": {
       "type": "template",
       "payload": {
       "template_type":"list",
-        "elements": [
-           {
+        "elements": [ inko
+        /*   {
             "title":"Books",
             "image_url":"https://ploum.net/images/livres.jpg",
             "subtitle":"We have them for you"
@@ -171,19 +183,16 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "image_url":body.items[4].volumeInfo.imageLinks[1],
             "subtitle":"author: " + body.items[4].volumeInfo.authors[0]+ ", Category: "  + body.items[4].volumeInfo.categories[0] +", Rating: " + body.items[4].volumeInfo.averageRating
            }
-          
+          */
            ]
       }
       }
     }
    },//data
     source : "text"
-  })//json*/
+  })//json
   //console.log("def")
-  body.items.forEach ( function(ink) {
-  console.log(ink.volumeInfo.title+" "+ ink.volumeInfo.authors[0])
-  }
-  )
+  
   console.log(json)
   response.end(json)
 }
