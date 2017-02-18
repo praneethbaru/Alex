@@ -137,7 +137,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "subtitle":"We have them for you"
            }
   body.items.forEach ( function(ink) {
-    if(ink.volumeInfo!= null)
+    if(ink.volumeInfo.authors!= null)
     {
   console.log(ink.volumeInfo.title+" "+ ink.volumeInfo.authors[0])
    inko = inko + {"title":ink.volumeInfo.title,
