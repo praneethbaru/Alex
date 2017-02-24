@@ -154,7 +154,7 @@ word_query = req.body.result.resolvedQuery
     //body: formData,
     //method: 'POST'
   }, function (err, res, body) {
-    console.log(res.body[1]);
+    console.log(res.body[0]);
    /* var word_description = "Word: "+body.results.id+" "+body.results.lexicalEntries.pronunciations.phoneticSpelling+"\\n"+
                             "( "+body.results.lexicalEntries.lexicalCategory+" )\\n"+
 
