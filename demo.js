@@ -27,7 +27,7 @@ app.post('/webhook', function(request, response)
   sendWords(request,response);
   }
 }
-         
+
 ) //app.post
 
 function sendMessage(text, response)
@@ -88,13 +88,13 @@ city= req.body.result.parameters["geo-city"]
     var weather= "Today, in " +body.name+ " the weather is " +body.weather[0].description+ " and the temperature is " +body.main.temp
     sendGenericMessage(body, response, weather)
     }
-    }  
+    }
     }
            }//error
            else
            console.log(error)
   }
-         ) 
+         )
 }
 
 function sendBooks(req, response)
@@ -109,9 +109,9 @@ book_query = req.body.result.resolvedQuery
   {
   book_query = book_query.replace("Tell me about the book named","")
   }
-  
-  
-     
+
+
+
   request({
     url:"https://www.googleapis.com/books/v1/volumes?q="+book_query,
     json:true
@@ -127,7 +127,7 @@ book_query = req.body.result.resolvedQuery
            else
            console.log(error)
   }
-         ) 
+         )
 }
 //lasigd9efg
 function sendWords(req, response)
@@ -142,9 +142,9 @@ word_query = req.body.result.resolvedQuery
   {
   word_query = word_query.replace("#word ","")
   }
-  
-  
-     
+
+
+
   request({
     headers: {
   "app_id": "c8d9fc8b",
@@ -154,7 +154,15 @@ word_query = req.body.result.resolvedQuery
     //body: formData,
     //method: 'POST'
   }, function (err, res, body) {
-    console.log(body);
+    //console.log(body);
+    var word_description = "Word: "+body.results.id+" "+body.results.lexicalEntries.pronunciations.phoneticSpelling+""\\n"+
+                            "( "+body.results.lexicalEntries.lexicalCategory+" )\\n"+
+
+                             "Meaning: "+body.results.lexicalEntries.entries.senses.definitions+"\\n"+
+                             "Example: " +body.results.lexicalEntries.entries.senses.examples[0].text
+                             console.log(word_description)
+                             sendMessage(word_description, response)
+
   });
 }
 
@@ -171,7 +179,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
   console.log(inko)
   var i=0;
     body.items.forEach ( function(ink) {
-    
+
     if(ink.volumeInfo.authors!= null && i< 8 )
     {
   console.log(ink.volumeInfo.title+" "+ ink.volumeInfo.authors)
@@ -206,7 +214,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
            // "image_url":body.items[0].volumeInfo.imageLinks[1],
             "subtitle":"author: " + body.items[0].volumeInfo.authors[0]+ ", Category: "  + body.items[0].volumeInfo.categories[0] +", Rating: " + body.items[0].volumeInfo.averageRating
            },
-          
+
           {
             "title":body.items[1].volumeInfo.title,
             //"image_url":body.items[1].volumeInfo.imageLinks[1],
@@ -228,7 +236,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
             "subtitle":"author: " + body.items[4].volumeInfo.authors[0]+ ", Category: "  + body.items[4].volumeInfo.categories[0] +", Rating: " + body.items[4].volumeInfo.averageRating
            }
           */
-           
+
       }
       }
     }
@@ -236,7 +244,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
     source : "text"
   })//json
   console.log(json)
-  
+
   console.log(inko)
   response.end(json)
 }
