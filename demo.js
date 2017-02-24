@@ -166,6 +166,7 @@ word_query = req.body.result.resolvedQuery
   });
 }
 
+
 function sendListMessage(body, req, response)
 {
 //var img="http://www.omgubuntu.co.uk/wp-content/uploads/2013/12/Flat-Weather-Icon-Set.png"
