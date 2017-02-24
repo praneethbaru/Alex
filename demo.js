@@ -154,14 +154,14 @@ word_query = req.body.result.resolvedQuery
     //body: formData,
     //method: 'POST'
   }, function (err, res, body) {
-    //console.log(body);
-    var word_description = "Word: "+body.results.id+" "+body.results.lexicalEntries.pronunciations.phoneticSpelling+"\\n"+
+    console.log(body);
+   /* var word_description = "Word: "+body.results.id+" "+body.results.lexicalEntries.pronunciations.phoneticSpelling+"\\n"+
                             "( "+body.results.lexicalEntries.lexicalCategory+" )\\n"+
 
                              "Meaning: "+body.results.lexicalEntries.entries.senses.definitions+"\\n"+
                              "Example: " +body.results.lexicalEntries.entries.senses.examples[0].text
                              console.log(word_description)
-                             sendMessage(word_description, response)
+                             sendMessage(word_description, response)*/
 
   });
 }
