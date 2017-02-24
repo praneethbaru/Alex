@@ -22,6 +22,10 @@ app.post('/webhook', function(request, response)
   {
   sendBooks(request,response);
   }
+  else if(request.body.result.action=="words")
+    {
+  sendWords(request,response);
+  }
 }
          
 ) //app.post
@@ -124,6 +128,34 @@ book_query = req.body.result.resolvedQuery
            console.log(error)
   }
          ) 
+}
+//lasigd9efg
+function sendWords(req, response)
+{
+  console.log("ENTERED INTO WORDS MODULE.....")
+word_query = req.body.result.resolvedQuery
+  if(word_query.includes("#words "))
+  {
+  word_query = word_query.replace("#words ","")
+  }
+  else if(word_query.includes("#word "))
+  {
+  word_query = word_query.replace("#word ","")
+  }
+  
+  
+     
+  request({
+    headers: {
+  "Accept": "application/json",
+  "app_id": "c8d9fc8b",
+    },
+    uri: 'https://od-api.oxforddictionaries.com:443/api/v1/entries/en/'+word_query,
+    //body: formData,
+    //method: 'POST'
+  }, function (err, res, body) {
+    console.log(body);
+  });
 }
 
 function sendListMessage(body, req, response)
