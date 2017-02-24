@@ -155,7 +155,7 @@ word_query = req.body.result.resolvedQuery
     //method: 'POST'
   }, function (err, res, body) {
     //console.log(body);
-    var word_description = "Word: "+body.results.id+" "+body.results.lexicalEntries.pronunciations.phoneticSpelling+""\\n"+
+    var word_description = "Word: "+body.results.id+" "+body.results.lexicalEntries.pronunciations.phoneticSpelling+"\\n"+
                             "( "+body.results.lexicalEntries.lexicalCategory+" )\\n"+
 
                              "Meaning: "+body.results.lexicalEntries.entries.senses.definitions+"\\n"+
