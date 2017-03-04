@@ -156,7 +156,7 @@ word_query = req.body.result.resolvedQuery
   }, function (err, res, body) {
     console.log(JSON.parse(res.body).results[0].lexicalEntries);
     var wdata = JSON.parse(res.body);
-    var word_description = "Word: "+wdata.results[0].id+" "+body.results.lexicalEntries.pronunciations.phoneticSpelling+"\\n"+
+    var word_description = "Word: "+wdata.results[0].id+" "+wdata.results[0].lexicalEntries.pronunciations.phoneticSpelling+"\\n"+
                             "( "+wdata.results[0].lexicalEntries.lexicalCategory+" )\\n"+
 
                              "Meaning: "+wdata.results[0].lexicalEntries.entries.senses.definitions+"\\n"+
