@@ -189,6 +189,7 @@ var json = JSON.stringify({
  },
   source:"juice"
 })
+console.log(json)
                           response.end(json)
 }
 function sendListMessage(body, req, response)
