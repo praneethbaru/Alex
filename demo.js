@@ -14,6 +14,8 @@ app.use(bodyparser.json())
 app.post('/webhook', function(request, response)
 {
   console.log("Entry into app.post successful......")
+  audio_query = request.body.result.resolvedQuery
+  console.log(audio_query)
   if(request.body.result.action=="weather")
   {
   sendWeather(request,response);
