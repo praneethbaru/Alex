@@ -167,11 +167,12 @@ word_query = req.body.result.resolvedQuery
   });
 }
 
-function sendQuick(quick, response)
+function sendQuick(word_description, response)
 {
   var json = JSON.stringify({
+    speech : "yeyy",
    data:{
-  "facebook": {
+ /* "facebook": {
     "text":"Pick a color:",
     "quick_replies":[
       {
@@ -185,7 +186,7 @@ function sendQuick(quick, response)
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
     ]
-  }
+  }*/
 },//data
     source : "text"
   })//json
