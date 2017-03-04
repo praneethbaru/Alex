@@ -170,19 +170,17 @@ word_query = req.body.result.resolvedQuery
 function sendQuick(quick, response)
 {
 var json = JSON.stringify({
- data:{
-  "facebook": {
-    "text":"Pick a color:",
-    "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"Red",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
-      }
-    ]
-  }
-},
-  source:"text"
+'speech': 'When',
+              'displayText': 'When',
+              'messages': 
+              [
+               {'title': 'when',
+                'replies': ['12:00',
+                            '13:00',
+                            '17:00',
+                            '18:00'],
+                'type': 2}],
+              'source': 'dimwei.com'
 })//stringify
 console.log(json)
                           response.end(json)
