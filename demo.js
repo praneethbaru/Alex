@@ -38,7 +38,7 @@ app.post('/webhook', function(request, response)
 ) //app.post
 function sendAudio(request, response)
 {
-  audio_query = req.body.result.resolvedQuery
+  audio_query = request.body.result.resolvedQuery
   console.log(audio_query)
  audio_query = audio_query.replace("#audio ","")
   response.writeHead(200, {"Content-Type":"application/json"})
