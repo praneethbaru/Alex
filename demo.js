@@ -170,8 +170,8 @@ word_query = req.body.result.resolvedQuery
 function sendQuick(quick, response)
 {
 var json = JSON.stringify({
- data:{
-   "facebook": {
+ data:{{
+  "facebook": {
     "text":"Pick a color:",
     "quick_replies":[
       {
@@ -185,8 +185,7 @@ var json = JSON.stringify({
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
     ]
-  }
- },
+  },
   source:"juice"
 })
 console.log(json)
