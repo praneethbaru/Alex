@@ -167,31 +167,13 @@ word_query = req.body.result.resolvedQuery
   });
 }
 
-function sendQuick(word_description, response)
+function sendQuick(text, response)
 {
-  var json = JSON.stringify({
-    speech : "yeyy",
- /*  data:{
-  "facebook": {
-    "text":"Pick a color:",
-    "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"Red",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
-      },
-      {
-        "content_type":"text",
-        "title":"Green",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      }
-    ]
-  }
-},//data/*/
+ var json = JSON.stringify({
+    speech:text,
     source : "text"
-  })//json
-  console.log(json)
-response.end(json)
+  })
+  response.end(json)
 }
 function sendListMessage(body, req, response)
 {
