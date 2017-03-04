@@ -170,7 +170,7 @@ word_query = req.body.result.resolvedQuery
 function sendQuick(quick, response)
 {
 var json = JSON.stringify({
- data:{{
+ data:{
   "facebook": {
     "text":"Pick a color:",
     "quick_replies":[
