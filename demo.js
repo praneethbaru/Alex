@@ -171,8 +171,8 @@ function sendQuick(word_description, response)
 {
   var json = JSON.stringify({
     speech : "yeyy",
-   data:{
- /* "facebook": {
+ /*  data:{
+  "facebook": {
     "text":"Pick a color:",
     "quick_replies":[
       {
@@ -186,8 +186,8 @@ function sendQuick(word_description, response)
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
     ]
-  }*/
-},//data
+  }
+},//data/*/
     source : "text"
   })//json
   console.log(json)
