@@ -185,7 +185,8 @@ var json = JSON.stringify({
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
     ]
-  },
+  }
+ },
   source:"juice"
 })
 console.log(json)
