@@ -161,12 +161,36 @@ word_query = req.body.result.resolvedQuery
                              "Meaning: "+wdata.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]+"\r\n"+
                              "Example: " +wdata.results[0].lexicalEntries[0].entries[0].senses[0].examples[0].text
                              console.log(word_description)
-                             sendMessage(word_description, response)
+                            // sendMessage(word_description, response)
+                             sendQuick(word_description, response)
 
   });
 }
 
-
+function sendQuick(quick, response)
+{
+var json = JSON.stringify({
+ data:{
+   "facebook": {
+    "text":"Pick a color:",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"Red",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+      },
+      {
+        "content_type":"text",
+        "title":"Green",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      }
+    ]
+  }
+ },
+  source:"juice"
+}
+                          response.end(json)
+}
 function sendListMessage(body, req, response)
 {
 //var img="http://www.omgubuntu.co.uk/wp-content/uploads/2013/12/Flat-Weather-Icon-Set.png"
