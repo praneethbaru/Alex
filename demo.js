@@ -28,6 +28,7 @@ app.post('/webhook', function(request, response)
   }
   else if(request.body.result.action=="audio")
     {
+      console.log("AUDIOOOOOO")
   sendAudio(request,response);
   }
 }
@@ -210,6 +211,7 @@ function sendQuick(text, response, link)
 },
     source : "text"
   })
+ console.log(link)
   response.end(json)
 }
 function sendListMessage(body, req, response)
