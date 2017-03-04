@@ -155,13 +155,14 @@ word_query = req.body.result.resolvedQuery
     //method: 'POST'
   }, function (err, res, body) {
     console.log(JSON.parse(res.body).results[0].lexicalEntries);
-   /* var word_description = "Word: "+body.results.id+" "+body.results.lexicalEntries.pronunciations.phoneticSpelling+"\\n"+
-                            "( "+body.results.lexicalEntries.lexicalCategory+" )\\n"+
+    var wdata = JSON.parse(res.body);
+    var word_description = "Word: "+wdata.results[0].id+" "+body.results.lexicalEntries.pronunciations.phoneticSpelling+"\\n"+
+                            "( "+wdata.results[0].lexicalEntries.lexicalCategory+" )\\n"+
 
-                             "Meaning: "+body.results.lexicalEntries.entries.senses.definitions+"\\n"+
-                             "Example: " +body.results.lexicalEntries.entries.senses.examples[0].text
+                             "Meaning: "+wdata.results[0].lexicalEntries.entries.senses.definitions+"\\n"+
+                             "Example: " +wdata.results[0].lexicalEntries.entries.senses.examples[0].text
                              console.log(word_description)
-                             sendMessage(word_description, response)*/
+                             sendMessage(word_description, response)
 
   });
 }
