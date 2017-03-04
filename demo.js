@@ -169,7 +169,7 @@ word_query = req.body.result.resolvedQuery
 
 function sendQuick(text, response)
 {
-  response.writeHead(200, {"Content-Type":"application/json"}
+  response.writeHead(200, {"Content-Type":"application/json"})
  var json = JSON.stringify({
     data:{
   "facebook": {
