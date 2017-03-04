@@ -26,10 +26,17 @@ app.post('/webhook', function(request, response)
     {
   sendWords(request,response);
   }
+  else if(request.body.result.action=="audio")
+    {
+  sendAudio(request,response);
+  }
 }
 
 ) //app.post
-
+function sendAudio(request, response)
+{
+  console.log(request)
+  }
 function sendMessage(text, response)
 {
 response.writeHead(200, {"Content-Type":"application/json"})
@@ -161,29 +168,25 @@ word_query = req.body.result.resolvedQuery
                              "Meaning: "+wdata.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]+"\r\n"+
                              "Example: " +wdata.results[0].lexicalEntries[0].entries[0].senses[0].examples[0].text
                              console.log(word_description)
+    link = wdata.results[0].lexicalEntries[0].pronunciations[0].audioFile;
                             // sendMessage(word_description, response)
-                             sendQuick(word_description, response)
+                             sendQuick(word_description, response, link)
 
   });
 }
 
-function sendQuick(text, response)
+function sendQuick(text, response, link)
 {
   response.writeHead(200, {"Content-Type":"application/json"})
  var json = JSON.stringify({
     data:{
   "facebook": {
-    "text":"Pick a color:",
+    "text":text,
     "quick_replies":[
       {
         "content_type":"text",
-        "title":"Red",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
-      },
-      {
-        "content_type":"text",
-        "title":"Green",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        "title":"audio",
+        "payload":"link"
       }
     ]
   }
