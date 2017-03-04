@@ -156,11 +156,11 @@ word_query = req.body.result.resolvedQuery
   }, function (err, res, body) {
     console.log(JSON.parse(res.body).results[0].lexicalEntries);
     var wdata = JSON.parse(res.body);
-    var word_description = "Word: "+wdata.results[0].id+" "+wdata.results[0].lexicalEntries[0].pronunciations.phoneticSpelling+"\\n"+
+    var word_description = "Word: "+wdata.results[0].id+" "+wdata.results[0].lexicalEntries[0].pronunciations[0].phoneticSpelling+"\\n"+
                             "( "+wdata.results[0].lexicalEntries[0].lexicalCategory+" )\\n"+
 
-                             "Meaning: "+wdata.results[0].lexicalEntries[0].entries.senses.definitions+"\\n"+
-                             "Example: " +wdata.results[0].lexicalEntries[0].entries.senses.examples[0].text
+                             "Meaning: "+wdata.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]+"\\n"+
+                             "Example: " +wdata.results[0].lexicalEntries[0].entries[0].senses[0].examples[0].text
                              console.log(word_description)
                              sendMessage(word_description, response)
 
