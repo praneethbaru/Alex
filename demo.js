@@ -186,7 +186,7 @@ var json = JSON.stringify({
       }
     ]
   }
- },
+},
   source:"juice"
 })
 console.log(json)
