@@ -35,7 +35,23 @@ app.post('/webhook', function(request, response)
 ) //app.post
 function sendAudio(request, response)
 {
-  console.log(request)
+  audio_query = req.body.result.resolvedQuery
+ audio_query = audio_query.replace("#audio ","")
+  response.writeHead(200, {"Content-Type":"application/json"})
+  var json = JSON.stringify({
+   data:{
+   "facebook": {
+    "attachment": {
+      "type": "audio",
+      "payload": {
+      "url":audio_query
+      }//payload
+      }//attachment
+    }//facebook
+   },//data
+    source : "text"
+  })//json
+  response.end(json)
   }
 function sendMessage(text, response)
 {
@@ -186,7 +202,7 @@ function sendQuick(text, response, link)
       {
         "content_type":"text",
         "title":"audio",
-        "payload":"link"
+        "payload":"#audio "+  link
       }
     ]
   }
