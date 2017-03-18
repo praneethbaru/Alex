@@ -62,7 +62,7 @@ function sendAudio(request, response)
   response.end(json)
   }
 
-function sendVideo(request, response)
+function sendVideo(req, response)
 {
 video_query = req.body.result.resolvedQuery
   if(video_query.includes("#video "))
