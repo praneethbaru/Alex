@@ -102,7 +102,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
   //console.log(ink.items.title+" "+ ink.volumeInfo.authors)
   inko.push({
             "title":ink.snippet.title,
-            "image_url":ink.snippet.thumbnails.medium.url,
+            "image_url":ink.snippet.thumbnails.high.url,
              "subtitle":ink.snippet.description,
            "default_action": {
               "type": "web_url",
