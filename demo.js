@@ -33,6 +33,10 @@ app.post('/webhook', function(request, response)
       console.log("AUDIOOOOOO")
   sendAudio(request,response);
   }
+   else if(request.body.result.action=="video")
+    {
+  sendVideo(request,response);
+  }
 }
 
 ) //app.post
@@ -57,6 +61,77 @@ function sendAudio(request, response)
   })//json
   response.end(json)
   }
+
+function sendVideo(request, response)
+{
+video_query = req.body.result.resolvedQuery
+  if(video_query.includes("#video "))
+  {
+  video_query = video_query.replace("#video ","")
+  }
+  request({
+    url:"https://www.googleapis.com/youtube/v3/search?key=AIzaSyCsojMsfWiHhc4RwlXmfGBbNy747m5oAk9&part=snippet&q="+video_query,
+    json:true
+  }, function(error, res, body)
+          {
+           if(!error)
+           {
+    if(body!= null)
+    {
+    sendVideoMessage(body, req, response)
+    }
+           }//error
+           else
+           console.log(error)
+  }
+         )
+}
+
+function sendVideoMessage(body, req, response)
+{
+//var img="http://www.omgubuntu.co.uk/wp-content/uploads/2013/12/Flat-Weather-Icon-Set.png"
+ console.log("VIDEO MODULE ")
+response.writeHead(200, {"Content-Type":"application/json"})
+  var inko
+  console.log(body)
+  var i=0;
+    body.items.forEach ( function(ink) {
+      if(i<8)
+  console.log(ink.items.title+" "+ ink.volumeInfo.authors)
+  inko.push({
+            "title":ink.snippet.title,
+            "image_url":ink.snippet.thumbnails.medium.url,
+             "subtitle":ink.snippet.description,
+           "default_action": {
+              "type": "web_url",
+              "url":"https://www.youtube.com/watch?v=Nq2Kum-eG8g",
+               }
+  })
+      i++
+    }
+  }
+  )
+  var json = JSON.stringify({
+   data:{
+   "facebook": {
+    "attachment": {
+      "type": "template",
+      "payload": {
+      "template_type":"generic",
+        "elements":inko
+      }
+      }
+    }
+   },//data
+    source : "text"
+  })//json
+  console.log(json)
+
+  console.log(inko)
+  response.end(json)
+}
+
+
 function sendMessage(text, response)
 {
 response.writeHead(200, {"Content-Type":"application/json"})
@@ -216,6 +291,8 @@ function sendQuick(text, response, link)
  console.log(link)
   response.end(json)
 }
+
+
 function sendListMessage(body, req, response)
 {
 //var img="http://www.omgubuntu.co.uk/wp-content/uploads/2013/12/Flat-Weather-Icon-Set.png"
@@ -254,39 +331,6 @@ response.writeHead(200, {"Content-Type":"application/json"})
       "payload": {
       "template_type":"generic",
         "elements":inko
-        /*   {
-            "title":"Books",
-            "image_url":"https://ploum.net/images/livres.jpg",
-            "subtitle":"We have them for you"
-           },
-           {
-            "title":body.items[0].volumeInfo.title,
-           // "image_url":body.items[0].volumeInfo.imageLinks[1],
-            "subtitle":"author: " + body.items[0].volumeInfo.authors[0]+ ", Category: "  + body.items[0].volumeInfo.categories[0] +", Rating: " + body.items[0].volumeInfo.averageRating
-           },
-
-          {
-            "title":body.items[1].volumeInfo.title,
-            //"image_url":body.items[1].volumeInfo.imageLinks[1],
-            "subtitle":"author: " + body.items[1].volumeInfo.authors[0]+ ", Category: "  + body.items[1].volumeInfo.categories[0] +", Rating: " + body.items[1].volumeInfo.averageRating
-           }/*,
-          {
-            "title":body.items[2].volumeInfo.title,
-            "image_url":body.items[2].volumeInfo.imageLinks[1],
-            "subtitle":"author: " + body.items[2].volumeInfo.authors[0]+ ", Category: "  + body.items[2].volumeInfo.categories[0] +", Rating: " + body.items[2].volumeInfo.averageRating
-           },
-          {
-            "title":body.items[3].volumeInfo.title,
-            "image_url":body.items[3].volumeInfo.imageLinks[1],
-            "subtitle":"author: " + body.items[3].volumeInfo.authors[0]+ ", Category: "  + body.items[3].volumeInfo.categories[0] +", Rating: " + body.items[3].volumeInfo.averageRating
-           }
-         /* {
-            "title":body.items[4].volumeInfo.title,
-            "image_url":body.items[4].volumeInfo.imageLinks[1],
-            "subtitle":"author: " + body.items[4].volumeInfo.authors[0]+ ", Category: "  + body.items[4].volumeInfo.categories[0] +", Rating: " + body.items[4].volumeInfo.averageRating
-           }
-          */
-
       }
       }
     }
