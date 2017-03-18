@@ -69,6 +69,7 @@ video_query = req.body.result.resolvedQuery
   {
   video_query = video_query.replace("#video ","")
   }
+  console.log(video_query)
   request({
     url:"https://www.googleapis.com/youtube/v3/search?key=AIzaSyCsojMsfWiHhc4RwlXmfGBbNy747m5oAk9&part=snippet&q="+video_query,
     json:true
