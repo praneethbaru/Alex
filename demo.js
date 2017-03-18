@@ -93,7 +93,7 @@ function sendVideoMessage(body, req, response)
 //var img="http://www.omgubuntu.co.uk/wp-content/uploads/2013/12/Flat-Weather-Icon-Set.png"
  console.log("VIDEO MODULE ")
 response.writeHead(200, {"Content-Type":"application/json"})
-  var inko
+  var inko = []
   console.log(body)
   var i=0;
     body.items.forEach ( function(ink) {
