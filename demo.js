@@ -97,6 +97,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
   var i=0;
     body.items.forEach ( function(ink) {
       if(i<8)
+      {
   console.log(ink.items.title+" "+ ink.volumeInfo.authors)
   inko.push({
             "title":ink.snippet.title,
