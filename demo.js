@@ -99,6 +99,10 @@ response.writeHead(200, {"Content-Type":"application/json"})
     body.items.forEach ( function(ink) {
       if(i<8)
       {
+        if(ink.id.kind == "youtube#channel")
+          id = "channel/"+ink.id.channelId
+        else
+          id = "watch?v="+ink.id.videoId
   //console.log(ink.items.title+" "+ ink.volumeInfo.authors)
   inko.push({
             "title":ink.snippet.title,
@@ -106,7 +110,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
              "subtitle":ink.snippet.description,
            "default_action": {
               "type": "web_url",
-              "url":"https://www.youtube.com/watch?v=Nq2Kum-eG8g",
+              "url":"https://www.youtube.com/"+id,
                }
   })
       i++
