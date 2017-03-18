@@ -99,7 +99,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
     body.items.forEach ( function(ink) {
       if(i<8)
       {
-  console.log(ink.items.title+" "+ ink.volumeInfo.authors)
+  console.log(ink.items[0].title+" "+ ink.volumeInfo.authors)
   inko.push({
             "title":ink.snippet.title,
             "image_url":ink.snippet.thumbnails.medium.url,
