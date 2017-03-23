@@ -56,56 +56,56 @@ var json = JSON.stringify(
   {
    [ 
     {
-    "img_url": "https://s-media-cache-ak0.pinimg.com/originals/33/d1/4c/33d14cb737e5b4658e6914621625f545.jpg"
-      "title": "Burger and Fries"
+    "img_url": "https://s-media-cache-ak0.pinimg.com/originals/33/d1/4c/33d14cb737e5b4658e6914621625f545.jpg",
+      "title": "Burger and Fries",
       "price":
         {
-          "small": "₹ 100"
-          "regular": "₹ 150"
+          "small": "₹ 100",
+          "regular": "₹ 150",
           "large": "₹ 200"
          }
     },
     
        {
-    "img_url":"https://img.clipartfox.com/7865a54005ecf2a13f26251af9a1a1ca_chinese-food-clipart-image-chinese-food-clipart-noodles_1600-941.jpeg"
-      "title":"Chinese Noodles"
+    "img_url":"https://img.clipartfox.com/7865a54005ecf2a13f26251af9a1a1ca_chinese-food-clipart-image-chinese-food-clipart-noodles_1600-941.jpeg",
+      "title":"Chinese Noodles",
       "price":
         {
-          "small": "₹ 150"
-          "regular": "₹ 200"
+          "small": "₹ 150",
+          "regular": "₹ 200",
           "large": "₹ 250"
          }
     },
     
        {
-    "img_url":"http://fml-pr.co.uk/assets/uploads/Turkey%20with%20Soba%20Noodles1.png"
-      "title":"Mixed Salad"
+    "img_url":"http://fml-pr.co.uk/assets/uploads/Turkey%20with%20Soba%20Noodles1.png",
+      "title":"Mixed Salad",
       "price":
         {
-          "small": "₹ 175"
-          "regular": "₹ 250"
+          "small": "₹ 175",
+          "regular": "₹ 250",
           "large": "₹ 300"
          }
     },
     
        {
-    "img_url":"http://a1.ro/uploads/modules/news/0/2016/7/20/507491/14690185242e12c66f.jpg"
-      "title":"Pizza"
+    "img_url":"http://a1.ro/uploads/modules/news/0/2016/7/20/507491/14690185242e12c66f.jpg",
+      "title":"Pizza",
       "price":
         {
-          "small": "₹ 200"
-          "regular": "₹ 275"
+          "small": "₹ 200",
+          "regular": "₹ 275",
           "large": "₹ 350"
          }
     },
     
        {
-    "img_url": "https://media.timeout.com/images/102186171/image.jpg"
-      "title":"Waffle Ice cream"
+    "img_url": "https://media.timeout.com/images/102186171/image.jpg",
+      "title":"Waffle Ice cream",
       "price":
         {
-          "small": "₹ 153"
-          "regular": "₹ 274"
+          "small": "₹ 153",
+          "regular": "₹ 274",
           "large": "₹ 352"
          }
     }
