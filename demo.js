@@ -49,7 +49,7 @@ function sendNews(req, response)
 {
   news_query = req.body.result.resolvedQuery
   console.log(news_query)
- news_query = news_query.replace("#news ","")
+ news_query = news_query.replace("#news","")
   if(news_query== null)
   {
   sendNewsQuickReplies(req, response)
@@ -57,19 +57,19 @@ function sendNews(req, response)
   else
   {
     var source = "bbc-news"
-    if(news_query=="general")
+    if(news_query==" general")
       source = "the-hindu"
     
-    if(news_query=="business")
+    if(news_query==" business")
       source = "business-insider"
     
-        if(news_query=="sport")
+        if(news_query==" sport")
       source = "espn"
     
-        if(news_query=="technology")
+        if(news_query==" technology")
       source = "techcrunch"
     
-       if(news_query=="entertainment")
+       if(news_query==" entertainment")
       source = "mashable" 
   request({
     url:"https://newsapi.org/v1/articles?source="+source+"&sortBy=top&apiKey=c0f1536a991945e8b0b19908517d7c72",
