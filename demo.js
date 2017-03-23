@@ -54,23 +54,39 @@ function sendNews(req, response)
   {
   sendNewsQuickReplies(req, response)
   }
-  
-//   request({
-//     url:"https://newsapi.org/v1/articles?source=the-hindu&sortBy=top&apiKey=c0f1536a991945e8b0b19908517d7c72",
-//     json:true
-//   }, function(error, res, body)
-//           {
-//            if(!error)
-//            {
-//     if(body!= null)
-//     {
-//     sendNewsMessage(body, req, response)
-//     }
-//            }//error
-//            else
-//            console.log(error)
-//   }
-//          )
+  else
+  {
+    if(news_query=="general")
+      source = "the-hindu"
+    
+    if(news_query=="business")
+      source = "business-insider"
+    
+        if(news_query=="sport")
+      source = "espn"
+    
+        if(news_query=="technology")
+      source = "techcrunch"
+    
+       if(news_query=="entertainment")
+      source = "mashable" 
+  request({
+    url:"https://newsapi.org/v1/articles?source="+source+"&sortBy=top&apiKey=c0f1536a991945e8b0b19908517d7c72",
+    json:true
+  }, function(error, res, body)
+          {
+           if(!error)
+           {
+    if(body!= null)
+    {
+    sendNewsMessage(body, req, response)
+    }
+           }//error
+           else
+           console.log(error)
+  }
+         )
+  }
 }
 
 function sendNewsQuickReplies(request, response)
