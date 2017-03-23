@@ -39,11 +39,12 @@ app.post('/webhook', function(request, response)
   }
    else if(request.body.result.action=="news")
     {
-  sendNews(request,response);
+  
+         
+        (request,response);
   }
   else if(request.body.result.action=="receipt")
     {
-  
   sendReceipt(cart, request,response);
   }
 }
@@ -245,6 +246,7 @@ function sendNewsQuickReplies(request, response)
   response.writeHead(200, {"Content-Type":"application/json"})
  var json = JSON.stringify({
     data:{
+         "speech":"hi there is good news",
   "facebook": {
     "text":"Select a category",
     "quick_replies":[
