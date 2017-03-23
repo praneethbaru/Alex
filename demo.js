@@ -48,7 +48,7 @@ app.post('/webhook', function(request, response)
 function sendNews(req, response)
 {
   request({
-    url:"https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=c0f1536a991945e8b0b19908517d7c72",
+    url:"https://newsapi.org/v1/articles?source=the-hindu&sortBy=top&apiKey=c0f1536a991945e8b0b19908517d7c72",
     json:true
   }, function(error, res, body)
           {
