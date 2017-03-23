@@ -53,8 +53,8 @@ function sendReceipt(cart, request,response)
 {
   var r_query 
 var json = JSON.stringify(
-  {
-   [ 
+  [
+   
     {
     "img_url": "https://s-media-cache-ak0.pinimg.com/originals/33/d1/4c/33d14cb737e5b4658e6914621625f545.jpg",
       "title": "Burger and Fries",
@@ -110,7 +110,7 @@ var json = JSON.stringify(
          }
     }
    ]
-  }
+  
 )
 r_query = request.body.result.resolvedQuery
 
