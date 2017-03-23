@@ -56,6 +56,7 @@ function sendNews(request, response)
   }
   else
   {
+    var source = "der-tagesspiegel"
     if(news_query=="general")
       source = "the-hindu"
     
