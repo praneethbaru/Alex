@@ -149,6 +149,7 @@ function sendReceiptMessage(cart, json, request, response)
   )
        })
        inko.push(
+            {
        "address":{
           "street_1":"1 Hacker Way",
           "street_2":"",
@@ -157,15 +158,17 @@ function sendReceiptMessage(cart, json, request, response)
           "state":"CA",
           "country":"US"
         }
-       )
+            })
 inko.push(
+     {
 "summary":{
           "subtotal":75.00,
           "shipping_cost":4.95,
           "total_tax":6.19,
           "total_cost":56.14
         }
-)
+     }
+          )
        console.log(inko)
 response.writeHead(200, {"Content-Type":"application/json"})
   var json = JSON.stringify({
