@@ -9,7 +9,7 @@ app.use(bodyparser.urlencoded({
 extended:true
 }))
 app.use(bodyparser.json())
-
+ 
 //start
 app.post('/webhook', function(request, response)
 {
@@ -41,9 +41,155 @@ app.post('/webhook', function(request, response)
     {
   sendNews(request,response);
   }
+  else if(request.body.result.action=="receipt")
+    {
+      var cart = [][]
+  sendReceipt(cart, request,response);
+  }
 }
 
 ) //app.post
+function sendReceipt(cart, request,response)
+{
+  var r_query 
+var json = JSON.stringify(
+  {
+   [ 
+    {
+    "img_url": "https://s-media-cache-ak0.pinimg.com/originals/33/d1/4c/33d14cb737e5b4658e6914621625f545.jpg"
+      "title": "Burger and Fries"
+      "price":
+        {
+          "small": "₹ 100"
+          "regular": "₹ 150"
+          "large": "₹ 200"
+         }
+    },
+    
+       {
+    "img_url":"https://img.clipartfox.com/7865a54005ecf2a13f26251af9a1a1ca_chinese-food-clipart-image-chinese-food-clipart-noodles_1600-941.jpeg"
+      "title":"Chinese Noodles"
+      "price":
+        {
+          "small": "₹ 150"
+          "regular": "₹ 200"
+          "large": "₹ 250"
+         }
+    },
+    
+       {
+    "img_url":"http://fml-pr.co.uk/assets/uploads/Turkey%20with%20Soba%20Noodles1.png"
+      "title":"Mixed Salad"
+      "price":
+        {
+          "small": "₹ 175"
+          "regular": "₹ 250"
+          "large": "₹ 300"
+         }
+    },
+    
+       {
+    "img_url":"http://a1.ro/uploads/modules/news/0/2016/7/20/507491/14690185242e12c66f.jpg"
+      "title":"Pizza"
+      "price":
+        {
+          "small": "₹ 200"
+          "regular": "₹ 275"
+          "large": "₹ 350"
+         }
+    },
+    
+       {
+    "img_url": "https://media.timeout.com/images/102186171/image.jpg"
+      "title":"Waffle Ice cream"
+      "price":
+        {
+          "small": "₹ 153"
+          "regular": "₹ 274"
+          "large": "₹ 352"
+         }
+    }
+   ]
+  }
+)
+r_query = request.body.result.resolvedQuery
+
+ r_query = r_query.replace("#receipt ","")
+ 
+if(cart[r_query]==null)
+{
+cart[r_query][0] = 1
+cart[r_query][1] = r_query
+}
+  else
+ cart[r_query][0]+=1
+  
+  
+  sendReceiptMessage(cart, json, request, response)
+}
+
+function sendReceiptMessage(cart, json, request, response)
+{
+  var inko = []
+  console.log(json)
+  cart.forEach( function(ink){
+               n = parseInt(ink[1])
+          quant = "large"
+          if(n%10==1)
+            quant = "small"
+          if(n%10 == 2)
+            quant = "large"
+            inko.push({
+            "title":json[n/10].title,
+            "image_url":json[n/10].img_url,
+             "quantity":ink[0],
+             "price" : json[n/10].price[quant],
+              "currency":"INR"
+               }
+  )
+       })
+       inko.push(
+       "address":{
+          "street_1":"1 Hacker Way",
+          "street_2":"",
+          "city":"Menlo Park",
+          "postal_code":"94025",
+          "state":"CA",
+          "country":"US"
+        }
+       )
+inko.push(
+"summary":{
+          "subtotal":75.00,
+          "shipping_cost":4.95,
+          "total_tax":6.19,
+          "total_cost":56.14
+        }
+)
+       console.log(inko)
+response.writeHead(200, {"Content-Type":"application/json"})
+  var json = JSON.stringify({
+   data:{
+   "facebook": {
+    "attachment": {
+      "type": "template",
+      "payload": {
+      "template_type":"receipt",
+         "recipient_name":"Stephane Crozatier",
+        "order_number":"123456789",
+        "currency":"INR",
+        "payment_method":"PayTm karo",
+        "elements": inko
+       
+      }
+      }
+    }
+   },//data
+    source : "text"
+  })//json
+
+  response.end(json)
+}
 
 function sendNews(req, response)
 {
@@ -156,6 +302,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
     }
   }
   )
+  
   var json = JSON.stringify({
    data:{
    "facebook": {
