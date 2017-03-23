@@ -40,8 +40,7 @@ app.post('/webhook', function(request, response)
    else if(request.body.result.action=="news")
     {
   
-         
-        (request,response);
+        sendNews(request,response);
   }
   else if(request.body.result.action=="receipt")
     {
