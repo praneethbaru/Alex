@@ -43,7 +43,7 @@ app.post('/webhook', function(request, response)
   }
   else if(request.body.result.action=="receipt")
     {
-      var cart = [][]
+      var cart = []
   sendReceipt(cart, request,response);
   }
 }
