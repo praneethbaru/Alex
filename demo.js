@@ -45,9 +45,9 @@ app.post('/webhook', function(request, response)
 
 ) //app.post
 
-function sendNews(request, response)
+function sendNews(req, response)
 {
-  news_query = request.body.result.resolvedQuery
+  news_query = req.body.result.resolvedQuery
   console.log(news_query)
  news_query = news_query.replace("#news ","")
   if(news_query== null)
@@ -80,7 +80,7 @@ function sendNews(request, response)
            {
     if(body!= null)
     {
-    sendNewsMessage(body, request, response)
+    sendNewsMessage(body, req, response)
     }
            }//error
            else
