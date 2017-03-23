@@ -141,7 +141,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
   console.log(body)
   var i=0;
     body.articles.forEach ( function(ink) {
-      if(i<8)
+      if(i<10)
       {
   inko.push({
             "title":ink.title,
