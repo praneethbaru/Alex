@@ -48,8 +48,9 @@ app.post('/webhook', function(request, response)
 function sendNews(req, response)
 {
   news_query = req.body.result.resolvedQuery
-  console.log(news_query)
+
  news_query = news_query.replace("#news","")
+    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+news_query)
   if(news_query== null)
   {
   sendNewsQuickReplies(req, response)
