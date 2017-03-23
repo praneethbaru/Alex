@@ -85,22 +85,22 @@ function sendNewsQuickReplies(request, response)
         "content_type":"text",
         "title":"General",
         "payload":"#news general"
-      }
+      },
         {
         "content_type":"text",
         "title":"Business",
         "payload":"#news business"
-      }
+      },
        {
         "content_type":"text",
         "title":"Sport",
         "payload":"#news sport"
-      }
+      },
               {
         "content_type":"text",
         "title":"Technology",
         "payload":"#news technology"
-      }
+      },
               {
         "content_type":"text",
         "title":"Entertainment",
