@@ -37,9 +37,76 @@ app.post('/webhook', function(request, response)
     {
   sendVideo(request,response);
   }
+   else if(request.body.result.action=="news")
+    {
+  sendNews(request,response);
+  }
 }
 
 ) //app.post
+
+function sendNews(req, response)
+{
+  request({
+    url:"https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=c0f1536a991945e8b0b19908517d7c72",
+    json:true
+  }, function(error, res, body)
+          {
+           if(!error)
+           {
+    if(body!= null)
+    {
+    sendNewsMessage(body, req, response)
+    }
+           }//error
+           else
+           console.log(error)
+  }
+         )
+}
+function sendNewsMessage(request, response)
+{
+//var img="http://www.omgubuntu.co.uk/wp-content/uploads/2013/12/Flat-Weather-Icon-Set.png"
+ console.log("NEWS MODULE ")
+response.writeHead(200, {"Content-Type":"application/json"})
+  var inko = []
+  console.log(body)
+  var i=0;
+    body.articles.forEach ( function(ink) {
+      if(i<8)
+      {
+  inko.push({
+            "title":ink.title,
+            "image_url":ink.urlToImage,
+             "subtitle":ink.description,
+           "default_action": {
+              "type": "web_url",
+              "url":ink.url,
+               }
+  })
+      i++
+    }
+  }
+  )
+  var json = JSON.stringify({
+   data:{
+   "facebook": {
+    "attachment": {
+      "type": "template",
+      "payload": {
+      "template_type":"generic",
+        "elements":inko
+      }
+      }
+    }
+   },//data
+    source : "text"
+  })//json
+  console.log(json)
+  console.log(inko)
+  response.end(json)
+}
+
 function sendAudio(request, response)
 {
   audio_query = request.body.result.resolvedQuery
