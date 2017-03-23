@@ -47,22 +47,73 @@ app.post('/webhook', function(request, response)
 
 function sendNews(req, response)
 {
-  request({
-    url:"https://newsapi.org/v1/articles?source=the-hindu&sortBy=top&apiKey=c0f1536a991945e8b0b19908517d7c72",
-    json:true
-  }, function(error, res, body)
-          {
-           if(!error)
-           {
-    if(body!= null)
-    {
-    sendNewsMessage(body, req, response)
-    }
-           }//error
-           else
-           console.log(error)
+  news_query = request.body.result.resolvedQuery
+  console.log(news_query)
+ news_query = news_query.replace("#news ","")
+  if(news_query== null)
+  {
+  sendNewsQuickReplies(req, response)
   }
-         )
+  
+//   request({
+//     url:"https://newsapi.org/v1/articles?source=the-hindu&sortBy=top&apiKey=c0f1536a991945e8b0b19908517d7c72",
+//     json:true
+//   }, function(error, res, body)
+//           {
+//            if(!error)
+//            {
+//     if(body!= null)
+//     {
+//     sendNewsMessage(body, req, response)
+//     }
+//            }//error
+//            else
+//            console.log(error)
+//   }
+//          )
+}
+
+function sendNewsQuickReplies(request, response)
+{
+  response.writeHead(200, {"Content-Type":"application/json"})
+ var json = JSON.stringify({
+    data:{
+  "facebook": {
+    "text":"Select a category",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"General",
+        "payload":"#news general"
+      }
+        {
+        "content_type":"text",
+        "title":"Business",
+        "payload":"#news business"
+      }
+       {
+        "content_type":"text",
+        "title":"Sport",
+        "payload":"#news sport"
+      }
+              {
+        "content_type":"text",
+        "title":"Technology",
+        "payload":"#news technology"
+      }
+              {
+        "content_type":"text",
+        "title":"Entertainment",
+        "payload":"#news entertainment"
+      }
+      
+    ]
+  }
+},
+    source : "text"
+  })
+ console.log(link)
+  response.end(json)
 }
 function sendNewsMessage(body, request, response)
 {
