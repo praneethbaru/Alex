@@ -246,8 +246,8 @@ function sendNewsQuickReplies(request, response)
   response.writeHead(200, {"Content-Type":"application/json"})
  var json = JSON.stringify({
     data:{
-         "speech":"hi ",
-         "displayText":"there is good news",
+//          "speech":"hi ",
+//          "displayText":"there is good news",
   "facebook": {
     "text":"Select a category",
     "quick_replies":[
