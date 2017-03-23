@@ -9,7 +9,7 @@ app.use(bodyparser.urlencoded({
 extended:true
 }))
 app.use(bodyparser.json())
- 
+     var cart = []
 //start
 app.post('/webhook', function(request, response)
 {
@@ -43,7 +43,7 @@ app.post('/webhook', function(request, response)
   }
   else if(request.body.result.action=="receipt")
     {
-      var cart = []
+  
   sendReceipt(cart, request,response);
   }
 }
