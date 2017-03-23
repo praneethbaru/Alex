@@ -56,7 +56,7 @@ function sendNews(req, response)
   }
   else
   {
-    var source = "der-tagesspiegel"
+    var source = "bbc-news"
     if(news_query=="general")
       source = "the-hindu"
     
