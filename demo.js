@@ -130,7 +130,6 @@ function sendNewsQuickReplies(request, response)
 },
     source : "text"
   })
- console.log(link)
   response.end(json)
 }
 function sendNewsMessage(body, request, response)
