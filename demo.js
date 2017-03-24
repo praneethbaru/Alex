@@ -120,6 +120,7 @@ r_query = request.body.result.resolvedQuery
 
  r_query = r_query.replace("#receipt ","")  
           n = parseInt(r_query)
+     if(n>10)
      cart.push(n)
      console.log(cart)
      if(n==1)
