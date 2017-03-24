@@ -222,7 +222,7 @@ var n = parseInt(d.getTime()/1000);
         "template_type":"receipt",
         "recipient_name":"Vincent Chase",
         "order_number":"12345678902",
-        "currency":"USD",
+        "currency":"INR",
         "payment_method":"Visa 2345",        
         "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
         "timestamp":n+"", 
@@ -250,8 +250,8 @@ var n = parseInt(d.getTime()/1000);
           "street_2":"",
           "city":"Menlo Park",
           "postal_code":"500080",
-          "state":"CA",
-          "country":"US"
+          "state":"TS",
+          "country":"IN"
         },
         "summary":{
           "subtotal":75.00,
