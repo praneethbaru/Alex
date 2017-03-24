@@ -153,17 +153,18 @@ function sendReceiptMessage(r_query, json, request, response)
 //   )
 //        })
       n = parseInt(r_query)
+     i= parseInt(n/10)
           quant = "regular"
           if(n%10==1)
           quant = "small"
           if(n%10 == 3)
           quant = "large"
-     console.log(r_query+"    "+ n/10+"    "+quant)
+     console.log(r_query+"    "+ i+"    "+quant)
        inko.push({
-            "title":json.elements[n/10].title,
-            "image_url":json.elements[n/10].img_url,
+            "title":json.elements[i].title,
+            "image_url":json.elements[i].img_url,
              "quantity":1,
-             "price" : json.elements[n/10].price[quant],
+             "price" : json.elements[i].price[quant],
               "currency":"INR"
                }
   )
