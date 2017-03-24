@@ -163,12 +163,12 @@ function sendReceiptMessage(r_query, json, request, response)
      console.log(r_query+"    "+ i+"    "+quant)
        inko.push(
             {
-            "title":"Classic White T-Shirt",
+            "title":json[n/10].title,
             "subtitle":"100% Soft and Luxurious Cotton",
             "quantity":2,
-            "price":50,
-            "currency":"USD",
-            "image_url":"https://s-media-cache-ak0.pinimg.com/originals/33/d1/4c/33d14cb737e5b4658e6914621625f545.jpg"
+            "price":json[n/10].price[quant],
+            "currency":"INR",
+            "image_url":"json[n/10].img_url"
           }
   )
 
