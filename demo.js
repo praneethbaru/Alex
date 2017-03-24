@@ -116,38 +116,52 @@ r_query = request.body.result.resolvedQuery
 
  r_query = r_query.replace("#receipt ","")
  
-if(cart[r_query]==null)
-{
-cart[r_query][0] = 1
-cart[r_query][1] = r_query
-}
-  else
- cart[r_query][0]+=1
+// if(cart[r_query]==null)
+// {
+// cart[r_query][0] = 1
+// cart[r_query][1] = r_query
+// }
+//   else
+//  cart[r_query][0]+=1
   
   
-  sendReceiptMessage(cart, json, request, response)
+  sendReceiptMessage(r_query, json, request, response)
 }
 
-function sendReceiptMessage(cart, json, request, response)
+function sendReceiptMessage(r_query, json, request, response)
 {
   var inko = []
   console.log(json)
-  cart.forEach( function(ink){
-               n = parseInt(ink[1])
-          quant = "large"
+//   cart.forEach( function(ink){
+//                n = parseInt(ink[1])
+//           quant = "large"
+//           if(n%10==1)
+//             quant = "small"
+//           if(n%10 == 2)
+//             quant = "large"
+//             inko.push({
+//             "title":json[n/10].title,
+//             "image_url":json[n/10].img_url,
+//              "quantity":ink[0],
+//              "price" : json[n/10].price[quant],
+//               "currency":"INR"
+//                }
+//   )
+//        })
+      n = parseInt(r_query)
+          quant = "regular"
           if(n%10==1)
-            quant = "small"
-          if(n%10 == 2)
-            quant = "large"
-            inko.push({
+          quant = "small"
+          if(n%10 == 3)
+          quant = "large"
+       inko.push({
             "title":json[n/10].title,
             "image_url":json[n/10].img_url,
-             "quantity":ink[0],
+             "quantity":1,
              "price" : json[n/10].price[quant],
               "currency":"INR"
                }
   )
-       })
        inko.push(
             {
        "address":{
