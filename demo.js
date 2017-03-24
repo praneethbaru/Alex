@@ -107,12 +107,12 @@ app.post('/webhook', function(request, response)
   }
   else if(request.body.result.action=="receipt")
     {
-  sendReceipt(cart, request,response);
+  sendReceipt(cart,json, request,response);
   }
 }
 
 ) //app.post
-function sendReceipt(cart, request,response)
+function sendReceipt(cart, json, request,response)
 {
   var r_query 
 
@@ -123,7 +123,7 @@ r_query = request.body.result.resolvedQuery
      cart.push(n)
      console.log(cart)
      if(n==1)
-  sendReceiptMessage(request, response)
+  sendReceiptMessage(json, request, response)
   sendConfirmationMessage(request, response)
  
 }
@@ -154,7 +154,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
   })
   response.end(json)
 }
-function sendReceiptMessage( request, response)
+function sendReceiptMessage(json, request, response)
 {
       var inko = []
       var quant = ["small", "regular", "large"]
