@@ -200,7 +200,7 @@ function sendReceiptMessage(json, request, response)
           inko.push(
                       {
                       "title":json.elements[i].title,
-                      "subtitle":"100% Soft and Luxurious Cotton",
+                      "subtitle":quant[prev%10-1],
                       "quantity":1,
                       "price":parseInt(json.elements[i].price[quant[prev%10-1]]),
                       "currency":"INR",
@@ -210,6 +210,8 @@ function sendReceiptMessage(json, request, response)
 cart=[]
        console.log(inko)
 response.writeHead(200, {"Content-Type":"application/json"})
+     var d = new Date();
+var n = d.getTime();
   var json = JSON.stringify({
    data:{
    
@@ -218,12 +220,12 @@ response.writeHead(200, {"Content-Type":"application/json"})
       "type":"template",
       "payload":{
         "template_type":"receipt",
-        "recipient_name":"Stephane Crozatier",
+        "recipient_name":"Vincent Chase",
         "order_number":"12345678902",
-        "currency":"USD",
-        "payment_method":"Visa 2345",        
-        "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
-        "timestamp":"1428444852", 
+        "currency":"INR",
+        "payment_method":"Visa",        
+        //"order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
+        "timestamp":n, 
         "elements": inko,
 //            [
 //           {
@@ -247,9 +249,9 @@ response.writeHead(200, {"Content-Type":"application/json"})
           "street_1":"1 Hacker Way",
           "street_2":"",
           "city":"Menlo Park",
-          "postal_code":"94025",
-          "state":"CA",
-          "country":"US"
+          "postal_code":"500080",
+          "state":"TS",
+          "country":"IN"
         },
         "summary":{
           "subtotal":75.00,
