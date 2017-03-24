@@ -177,7 +177,7 @@ function sendReceiptMessage(json, request, response)
                prev = n
           if(prev!=n)
           {
-           i= parseInt(n/10)-1
+           i= parseInt(prev/10)-1
           console.log(prev+"    "+ i+"    "+quant[prev%10-1])
           inko.push(
                       {
