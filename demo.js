@@ -164,24 +164,36 @@ response.writeHead(200, {"Content-Type":"application/json"})
 }
 function sendReceiptMessage(json, request, response)
 {
+     cart.sort()
+     var count = 0
+     var prev = -1
       var inko = []
       var quant = ["small", "regular", "large"]
    //   n = parseInt(r_query)
       console.log(json)
      cart.forEach(function(n)
                   {
+          if(prev == -1)
+               prev = n
+          if(prev!=n)
+          {
            i= parseInt(n/10)-1
-          console.log(n+"    "+ i+"    "+quant[n%10-1])
+          console.log(prev+"    "+ i+"    "+quant[prev%10-1])
           inko.push(
-            {
-            "title":json.elements[i].title,
-            "subtitle":"100% Soft and Luxurious Cotton",
-            "quantity":1,
-            "price":parseInt(json.elements[i].price[quant[n%10-1]]),
-            "currency":"INR",
-            "image_url":json.elements[i].img_url
+                      {
+                      "title":json.elements[i].title,
+                      "subtitle":"100% Soft and Luxurious Cotton",
+                      "quantity":1,
+                      "price":parseInt(json.elements[i].price[quant[prev%10-1]]),
+                      "currency":"INR",
+                      "image_url":json.elements[i].img_url
+                    }
+               )
+               count = 1
+               prev = n
           }
-  )
+          else
+               count++
      })
 cart=[]
        console.log(inko)
