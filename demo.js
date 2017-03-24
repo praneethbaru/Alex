@@ -188,16 +188,16 @@ response.writeHead(200, {"Content-Type":"application/json"})
         "payment_method":"Visa 2345",        
         "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
         "timestamp":"1428444852", 
-        "elements": inko,
-//            [
-//           {
-//             "title":"Classic White T-Shirt",
-//             "subtitle":"100% Soft and Luxurious Cotton",
-//             "quantity":2,
-//             "price":50,
-//             "currency":"USD",
-//             "image_url":"https://s-media-cache-ak0.pinimg.com/originals/33/d1/4c/33d14cb737e5b4658e6914621625f545.jpg"
-//           },
+        "elements": //inko,
+           [
+          {
+            "title":"Classic White T-Shirt",
+            "subtitle":"100% Soft and Luxurious Cotton",
+            "quantity":2,
+            "price":50,
+            "currency":"USD",
+            "image_url":"https://s-media-cache-ak0.pinimg.com/originals/33/d1/4c/33d14cb737e5b4658e6914621625f545.jpg"
+          }
 //           {
 //             "title":"Classic Gray T-Shirt",
 //             "subtitle":"100% Soft and Luxurious Cotton",
