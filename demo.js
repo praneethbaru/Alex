@@ -210,7 +210,7 @@ function sendReceiptMessage(json, request, response)
                       "image_url":json.elements[i].img_url
                     }
                )
-     tax = sub*0.15
+     tax = sub*0.05
     total = sub + tax + sc - a1 - a2
 cart=[]
        console.log(inko)
