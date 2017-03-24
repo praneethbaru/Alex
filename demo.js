@@ -134,7 +134,7 @@ function sendReceiptMessage(r_query, json, request, response)
 {
   var inko = []
   console.log(json)
-     console.log(json[0])
+     console.log(json.elements[0])
 //   cart.forEach( function(ink){
 //                n = parseInt(ink[1])
 //           quant = "large"
@@ -158,10 +158,10 @@ function sendReceiptMessage(r_query, json, request, response)
           if(n%10 == 3)
           quant = "large"
        inko.push({
-            "title":json[n/10].title,
-            "image_url":json[n/10].img_url,
+            "title":json.elements[n/10].title,
+            "image_url":json.elements[n/10].img_url,
              "quantity":1,
-             "price" : json[n/10].price[quant],
+             "price" : json.elements[n/10].price[quant],
               "currency":"INR"
                }
   )
