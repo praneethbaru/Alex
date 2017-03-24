@@ -125,7 +125,13 @@ r_query = request.body.result.resolvedQuery
      console.log(cart)
      if(n==1)
   sendReceiptMessage(json, request, response)
-     else
+     else if (n==0)
+     {
+      
+          cart=[]
+          sendMessage("Order cancelled", response)
+     }
+          else
   sendConfirmationMessage(request, response)
  
 }
