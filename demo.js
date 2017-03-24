@@ -159,7 +159,7 @@ function sendReceiptMessage( request, response)
       var inko = []
       var quant = ["small", "regular", "large"]
    //   n = parseInt(r_query)
-
+      console.log(json)
      cart.forEach(function(n)
                   {
            i= parseInt(n/10)-1
