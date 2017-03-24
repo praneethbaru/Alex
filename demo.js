@@ -169,10 +169,12 @@ function sendReceiptMessage(json, request, response)
      var prev = -1
       var inko = []
       var quant = ["small", "regular", "large"]
+      var sub=0, tax=0, total=0, a1=20, a2=20, sc= 50
    //   n = parseInt(r_query)
       console.log(json)
      cart.forEach(function(n)
                   {
+          sub = sub + parseInt(json.elements[i].price[quant[n%10-1]])
           if(prev == -1)
                prev = n
           if(prev!=n)
@@ -194,6 +196,7 @@ function sendReceiptMessage(json, request, response)
           }
           else
                count++
+          
      })
            i= parseInt(prev/10)-1
           console.log(prev+"    "+ i+"    "+quant[prev%10-1])
@@ -207,6 +210,8 @@ function sendReceiptMessage(json, request, response)
                       "image_url":json.elements[i].img_url
                     }
                )
+     tax = sub*0.15
+    total = sub + tax + sc - a1 - a2
 cart=[]
        console.log(inko)
 response.writeHead(200, {"Content-Type":"application/json"})
@@ -254,19 +259,19 @@ var n = parseInt(d.getTime()/1000);
           "country":"IN"
         },
         "summary":{
-          "subtotal":75.00,
-          "shipping_cost":4.95,
-          "total_tax":6.19,
-          "total_cost":56.14
+          "subtotal":sub,
+          "shipping_cost":sc,
+          "total_tax":tax,
+          "total_cost":total
         },
         "adjustments":[
           {
             "name":"New Customer Discount",
-            "amount":20
+            "amount":a1
           },
           {
-            "name":"$10 Off Coupon",
-            "amount":10
+            "name":"₹20 Off Coupon",
+            "amount":a2
           }
         ]//ads
       }
