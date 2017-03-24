@@ -132,6 +132,7 @@ function sendReceiptMessage(r_query, json, request, response)
 {
   var inko = []
   console.log(json)
+     console.log(json[0])
 //   cart.forEach( function(ink){
 //                n = parseInt(ink[1])
 //           quant = "large"
