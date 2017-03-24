@@ -10,49 +10,7 @@ extended:true
 }))
 app.use(bodyparser.json())
      var cart = []
-//start
-app.post('/webhook', function(request, response)
-{
-  console.log("Entry into app.post successful......")
-  audio_query = request.body.result
-  console.log(audio_query)
-  if(request.body.result.action=="weather")
-  {
-  sendWeather(request,response);
-  }
-  else if(request.body.result.action=="books")
-  {
-  sendBooks(request,response);
-  }
-  else if(request.body.result.action=="words")
-    {
-  sendWords(request,response);
-  }
-  else if(request.body.result.action=="audio")
-    {
-      console.log("AUDIOOOOOO")
-  sendAudio(request,response);
-  }
-   else if(request.body.result.action=="video")
-    {
-  sendVideo(request,response);
-  }
-   else if(request.body.result.action=="news")
-    {
-  
-        sendNews(request,response);
-  }
-  else if(request.body.result.action=="receipt")
-    {
-  sendReceipt(cart, request,response);
-  }
-}
-
-) //app.post
-function sendReceipt(cart, request,response)
-{
-  var r_query 
-var json = JSON.stringify(
+     var json = JSON.stringify(
      {
           "elements":
   [
@@ -115,6 +73,49 @@ var json = JSON.stringify(
      }
 )
 json = JSON.parse(json)
+//start
+app.post('/webhook', function(request, response)
+{
+  console.log("Entry into app.post successful......")
+  audio_query = request.body.result
+  console.log(audio_query)
+  if(request.body.result.action=="weather")
+  {
+  sendWeather(request,response);
+  }
+  else if(request.body.result.action=="books")
+  {
+  sendBooks(request,response);
+  }
+  else if(request.body.result.action=="words")
+    {
+  sendWords(request,response);
+  }
+  else if(request.body.result.action=="audio")
+    {
+      console.log("AUDIOOOOOO")
+  sendAudio(request,response);
+  }
+   else if(request.body.result.action=="video")
+    {
+  sendVideo(request,response);
+  }
+   else if(request.body.result.action=="news")
+    {
+  
+        sendNews(request,response);
+  }
+  else if(request.body.result.action=="receipt")
+    {
+  sendReceipt(cart, request,response);
+  }
+}
+
+) //app.post
+function sendReceipt(cart, request,response)
+{
+  var r_query 
+
 r_query = request.body.result.resolvedQuery
 
  r_query = r_query.replace("#receipt ","")
@@ -127,31 +128,19 @@ r_query = request.body.result.resolvedQuery
 //   else
 //  cart[r_query][0]+=1
   
-  
+  sendConfirmationMessage(request, response)
+     
   sendReceiptMessage(r_query, json, request, response)
 }
+function sendConfirmationMessage(request, response)
+{
 
+}
 function sendReceiptMessage(r_query, json, request, response)
 {
   var inko = []
   console.log(json)
      console.log(json.elements[0].title)
-//   cart.forEach( function(ink){
-//                n = parseInt(ink[1])
-//           quant = "large"
-//           if(n%10==1)
-//             quant = "small"
-//           if(n%10 == 2)
-//             quant = "large"
-//             inko.push({
-//             "title":json[n/10].title,
-//             "image_url":json[n/10].img_url,
-//              "quantity":ink[0],
-//              "price" : json[n/10].price[quant],
-//               "currency":"INR"
-//                }
-//   )
-//        })
       n = parseInt(r_query)
      i= parseInt(n/10)-1
      
