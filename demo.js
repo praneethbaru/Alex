@@ -158,7 +158,7 @@ function sendReceiptMessage(r_query, json, request, response)
           quant = "small"
           if(n%10 == 3)
           quant = "large"
-     console.log(r_query+"    "+ n+"    "+quant)
+     console.log(r_query+"    "+ n/10+"    "+quant)
        inko.push({
             "title":json.elements[n/10].title,
             "image_url":json.elements[n/10].img_url,
