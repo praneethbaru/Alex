@@ -125,6 +125,7 @@ r_query = request.body.result.resolvedQuery
      console.log(cart)
      if(n==1)
   sendReceiptMessage(json, request, response)
+     else
   sendConfirmationMessage(request, response)
  
 }
