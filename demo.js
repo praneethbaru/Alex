@@ -171,7 +171,7 @@ function sendReceiptMessage(json, request, response)
             "title":json.elements[i].title,
             "subtitle":"100% Soft and Luxurious Cotton",
             "quantity":1,
-            "price":parseInt(json.elements[i].price[quant[i%10-1]]),
+            "price":parseInt(json.elements[i].price[quant[n%10-1]]),
             "currency":"INR",
             "image_url":json.elements[i].img_url
           }
