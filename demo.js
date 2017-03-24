@@ -153,7 +153,8 @@ function sendReceiptMessage(r_query, json, request, response)
 //   )
 //        })
       n = parseInt(r_query)
-     i= parseInt(n/10)
+     i= parseInt(n/10)-1
+     
           quant = "regular"
           if(n%10==1)
           quant = "small"
@@ -169,7 +170,7 @@ function sendReceiptMessage(r_query, json, request, response)
                }
   )
        inko.push(
-            {
+            
        "address":{
           "street_1":"1 Hacker Way",
           "street_2":"",
@@ -178,16 +179,16 @@ function sendReceiptMessage(r_query, json, request, response)
           "state":"CA",
           "country":"US"
         }
-            })
+            )
 inko.push(
-     {
+     
 "summary":{
           "subtotal":75.00,
           "shipping_cost":4.95,
           "total_tax":6.19,
           "total_cost":56.14
         }
-     }
+     
           )
        console.log(inko)
 response.writeHead(200, {"Content-Type":"application/json"})
