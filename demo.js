@@ -118,23 +118,41 @@ function sendReceipt(cart, request,response)
 
 r_query = request.body.result.resolvedQuery
 
- r_query = r_query.replace("#receipt ","")
- 
-// if(cart[r_query]==null)
-// {
-// cart[r_query][0] = 1
-// cart[r_query][1] = r_query
-// }
-//   else
-//  cart[r_query][0]+=1
-  
-  sendConfirmationMessage(request, response)
-     
+ r_query = r_query.replace("#receipt ","")  
+          n = parseInt(r_query)
+     cart.push(n)
+     console.log(cart)
+     if(n==1)
   sendReceiptMessage(r_query, json, request, response)
+  sendConfirmationMessage(request, response)
+ 
 }
 function sendConfirmationMessage(request, response)
 {
-
+response.writeHead(200, {"Content-Type":"application/json"})
+ var json = JSON.stringify({
+    data:{
+//          "speech":"hi ",
+//          "displayText":"there is good news",
+  "facebook": {
+    "text":"If you want to continue......continue!",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"Confirm Order",
+        "payload":"#receipt 1"
+      },
+        {
+        "content_type":"text",
+        "title":"Cancel Order",
+        "payload":"#receipt 0"
+      }
+    ]
+  }
+},
+    source : "text"
+  })
+  response.end(json)
 }
 function sendReceiptMessage(r_query, json, request, response)
 {
