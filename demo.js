@@ -223,9 +223,9 @@ var n = d.getTime();
         "recipient_name":"Vincent Chase",
         "order_number":"12345678902",
         "currency":"INR",
-        "payment_method":"Visa",        
+        "payment_method":"Visa 2345",        
         //"order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
-        "timestamp":n, 
+        "timestamp":n+"", 
         "elements": inko,
 //            [
 //           {
