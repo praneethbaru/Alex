@@ -211,7 +211,7 @@ cart=[]
        console.log(inko)
 response.writeHead(200, {"Content-Type":"application/json"})
      var d = new Date();
-var n = d.getTime();
+var n = parseInt(d.getTime()/1000);
   var json = JSON.stringify({
    data:{
    
