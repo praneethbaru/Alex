@@ -224,8 +224,8 @@ var n = d.getTime();
         "order_number":"12345678902",
         "currency":"INR",
         "payment_method":"Visa 2345",        
-        //"order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
-        "timestamp":n+"", 
+        "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
+        "timestamp":"1490347006118", 
         "elements": inko,
 //            [
 //           {
