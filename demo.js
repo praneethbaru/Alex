@@ -161,13 +161,15 @@ function sendReceiptMessage(r_query, json, request, response)
           if(n%10 == 3)
           quant = "large"
      console.log(r_query+"    "+ i+"    "+quant)
-       inko.push({
-            "title":json.elements[i].title,
-            "image_url":json.elements[i].img_url,
-             "quantity":1,
-             "price" : json.elements[i].price[quant],
-              "currency":"INR"
-               }
+       inko.push(
+            {
+            "title":"Classic White T-Shirt",
+            "subtitle":"100% Soft and Luxurious Cotton",
+            "quantity":2,
+            "price":50,
+            "currency":"USD",
+            "image_url":"https://s-media-cache-ak0.pinimg.com/originals/33/d1/4c/33d14cb737e5b4658e6914621625f545.jpg"
+          }
   )
 
        console.log(inko)
@@ -186,25 +188,25 @@ response.writeHead(200, {"Content-Type":"application/json"})
         "payment_method":"Visa 2345",        
         "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
         "timestamp":"1428444852", 
-        "elements": //inko
-           [
-          {
-            "title":"Classic White T-Shirt",
-            "subtitle":"100% Soft and Luxurious Cotton",
-            "quantity":2,
-            "price":50,
-            "currency":"USD",
-            "image_url":"https://s-media-cache-ak0.pinimg.com/originals/33/d1/4c/33d14cb737e5b4658e6914621625f545.jpg"
-          },
-          {
-            "title":"Classic Gray T-Shirt",
-            "subtitle":"100% Soft and Luxurious Cotton",
-            "quantity":1,
-            "price":25,
-            "currency":"USD",
-            "image_url":"https://img.clipartfox.com/7865a54005ecf2a13f26251af9a1a1ca_chinese-food-clipart-image-chinese-food-clipart-noodles_1600-941.jpeg"
-          }
-        ],
+        "elements": inko,
+//            [
+//           {
+//             "title":"Classic White T-Shirt",
+//             "subtitle":"100% Soft and Luxurious Cotton",
+//             "quantity":2,
+//             "price":50,
+//             "currency":"USD",
+//             "image_url":"https://s-media-cache-ak0.pinimg.com/originals/33/d1/4c/33d14cb737e5b4658e6914621625f545.jpg"
+//           },
+//           {
+//             "title":"Classic Gray T-Shirt",
+//             "subtitle":"100% Soft and Luxurious Cotton",
+//             "quantity":1,
+//             "price":25,
+//             "currency":"USD",
+//             "image_url":"https://img.clipartfox.com/7865a54005ecf2a13f26251af9a1a1ca_chinese-food-clipart-image-chinese-food-clipart-noodles_1600-941.jpeg"
+//           }
+//         ]
         "address":{
           "street_1":"1 Hacker Way",
           "street_2":"",
