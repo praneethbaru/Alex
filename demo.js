@@ -182,8 +182,8 @@ function sendReceiptMessage(json, request, response)
           inko.push(
                       {
                       "title":json.elements[i].title,
-                      "subtitle":"100% Soft and Luxurious Cotton",
-                      "quantity":1,
+                      "subtitle":quant[prev%10-1],
+                      "quantity":count,
                       "price":parseInt(json.elements[i].price[quant[prev%10-1]]),
                       "currency":"INR",
                       "image_url":json.elements[i].img_url
