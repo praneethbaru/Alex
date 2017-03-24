@@ -123,7 +123,7 @@ r_query = request.body.result.resolvedQuery
      cart.push(n)
      console.log(cart)
      if(n==1)
-  sendReceiptMessage(r_query, json, request, response)
+  sendReceiptMessage(request, response)
   sendConfirmationMessage(request, response)
  
 }
@@ -154,7 +154,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
   })
   response.end(json)
 }
-function sendReceiptMessage(json, request, response)
+function sendReceiptMessage( request, response)
 {
       var inko = []
       var quant = ["small", "regular", "large"]
