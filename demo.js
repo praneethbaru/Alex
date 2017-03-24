@@ -174,7 +174,7 @@ function sendReceiptMessage(json, request, response)
       console.log(json)
      cart.forEach(function(n)
                   {
-          sub = sub + parseInt(json.elements[i].price[quant[n%10-1]])
+          sub = sub + parseInt(json.elements[parseInt(n/10)-1].price[quant[n%10-1]])
           if(prev == -1)
                prev = n
           if(prev!=n)
