@@ -114,6 +114,7 @@ var json = JSON.stringify(
    ]
      }
 )
+json = JSON.parse(json)
 r_query = request.body.result.resolvedQuery
 
  r_query = r_query.replace("#receipt ","")
@@ -134,7 +135,7 @@ function sendReceiptMessage(r_query, json, request, response)
 {
   var inko = []
   console.log(json)
-     console.log(json.elements[0])
+     console.log(json.elements)
 //   cart.forEach( function(ink){
 //                n = parseInt(ink[1])
 //           quant = "large"
