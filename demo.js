@@ -154,30 +154,27 @@ response.writeHead(200, {"Content-Type":"application/json"})
   })
   response.end(json)
 }
-function sendReceiptMessage(r_query, json, request, response)
+function sendReceiptMessage(json, request, response)
 {
-  var inko = []
-  console.log(json)
-     console.log(json.elements[0].title)
-      n = parseInt(r_query)
-     i= parseInt(n/10)-1
-     
-          quant = "regular"
-          if(n%10==1)
-          quant = "small"
-          if(n%10 == 3)
-          quant = "large"
-     console.log(r_query+"    "+ i+"    "+quant)
-       inko.push(
+      var inko = []
+      var quant = ["small", "regular", "large"]
+   //   n = parseInt(r_query)
+
+     cart.forEach(function(n)
+                  {
+           i= parseInt(n/10)-1
+          console.log(n+"    "+ i+"    "+quant[n%10-1])
+          inko.push(
             {
             "title":json.elements[i].title,
             "subtitle":"100% Soft and Luxurious Cotton",
-            "quantity":2,
-            "price":parseInt(json.elements[i].price[quant]),
+            "quantity":1,
+            "price":parseInt(json.elements[i].price[quant[i%10-1]]),
             "currency":"INR",
             "image_url":json.elements[i].img_url
           }
   )
+     })
 
        console.log(inko)
 response.writeHead(200, {"Content-Type":"application/json"})
