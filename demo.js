@@ -53,6 +53,8 @@ function sendReceipt(cart, request,response)
 {
   var r_query 
 var json = JSON.stringify(
+     {
+          "elements":
   [
    
     {
@@ -110,7 +112,7 @@ var json = JSON.stringify(
          }
     }
    ]
-  
+     }
 )
 r_query = request.body.result.resolvedQuery
 
