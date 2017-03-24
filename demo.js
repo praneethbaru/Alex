@@ -195,6 +195,18 @@ function sendReceiptMessage(json, request, response)
           else
                count++
      })
+           i= parseInt(prev/10)-1
+          console.log(prev+"    "+ i+"    "+quant[prev%10-1])
+          inko.push(
+                      {
+                      "title":json.elements[i].title,
+                      "subtitle":"100% Soft and Luxurious Cotton",
+                      "quantity":1,
+                      "price":parseInt(json.elements[i].price[quant[prev%10-1]]),
+                      "currency":"INR",
+                      "image_url":json.elements[i].img_url
+                    }
+               )
 cart=[]
        console.log(inko)
 response.writeHead(200, {"Content-Type":"application/json"})
