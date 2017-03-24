@@ -62,9 +62,9 @@ var json = JSON.stringify(
       "title": "Burger and Fries",
       "price":
         {
-          "small": "₹ 100",
-          "regular": "₹ 150",
-          "large": "₹ 200"
+          "small": "100",
+          "regular": "150",
+          "large": " 200"
          }
     },
     
@@ -73,9 +73,9 @@ var json = JSON.stringify(
       "title":"Chinese Noodles",
       "price":
         {
-          "small": "₹ 150",
-          "regular": "₹ 200",
-          "large": "₹ 250"
+          "small": "150",
+          "regular": " 200",
+          "large": " 250"
          }
     },
     
@@ -84,9 +84,9 @@ var json = JSON.stringify(
       "title":"Mixed Salad",
       "price":
         {
-          "small": "₹ 175",
-          "regular": "₹ 250",
-          "large": "₹ 300"
+          "small": " 175",
+          "regular": " 250",
+          "large": " 300"
          }
     },
     
@@ -95,9 +95,9 @@ var json = JSON.stringify(
       "title":"Pizza",
       "price":
         {
-          "small": "₹ 200",
-          "regular": "₹ 275",
-          "large": "₹ 350"
+          "small": " 200",
+          "regular": " 275",
+          "large": " 350"
          }
     },
     
@@ -106,9 +106,9 @@ var json = JSON.stringify(
       "title":"Waffle Ice cream",
       "price":
         {
-          "small": "₹ 153",
-          "regular": "₹ 274",
-          "large": "₹ 352"
+          "small": " 153",
+          "regular": " 274",
+          "large": " 352"
          }
     }
    ]
@@ -166,7 +166,7 @@ function sendReceiptMessage(r_query, json, request, response)
             "title":json.elements[i].title,
             "subtitle":"100% Soft and Luxurious Cotton",
             "quantity":2,
-            "price":json.elements[i].price[quant],
+            "price":parseInt(json.elements[i].price[quant]),
             "currency":"INR",
             "image_url":json.elements[i].img_url
           }
