@@ -222,10 +222,10 @@ var n = d.getTime();
         "template_type":"receipt",
         "recipient_name":"Vincent Chase",
         "order_number":"12345678902",
-        "currency":"INR",
+        "currency":"USD",
         "payment_method":"Visa 2345",        
         "order_url":"http://petersapparel.parseapp.com/order?order_id=123456",
-        "timestamp":"1490347006118", 
+        "timestamp":"1428444852", 
         "elements": inko,
 //            [
 //           {
@@ -250,8 +250,8 @@ var n = d.getTime();
           "street_2":"",
           "city":"Menlo Park",
           "postal_code":"500080",
-          "state":"TS",
-          "country":"IN"
+          "state":"CA",
+          "country":"US"
         },
         "summary":{
           "subtotal":75.00,
