@@ -163,12 +163,12 @@ function sendReceiptMessage(r_query, json, request, response)
      console.log(r_query+"    "+ i+"    "+quant)
        inko.push(
             {
-            "title":json[i].title,
+            "title":json.elements[i].title,
             "subtitle":"100% Soft and Luxurious Cotton",
             "quantity":2,
-            "price":json[i].price[quant],
+            "price":json.elements[i].price[quant],
             "currency":"INR",
-            "image_url":json[i].img_url
+            "image_url":json.elements[i].img_url
           }
   )
 
