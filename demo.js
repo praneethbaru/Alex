@@ -169,27 +169,7 @@ function sendReceiptMessage(r_query, json, request, response)
               "currency":"INR"
                }
   )
-       inko.push(
-            
-       "address":{
-          "street_1":"1 Hacker Way",
-          "street_2":"",
-          "city":"Menlo Park",
-          "postal_code":"94025",
-          "state":"CA",
-          "country":"US"
-        }
-            )
-inko.push(
-     
-"summary":{
-          "subtotal":75.00,
-          "shipping_cost":4.95,
-          "total_tax":6.19,
-          "total_cost":56.14
-        }
-     
-          )
+
        console.log(inko)
 response.writeHead(200, {"Content-Type":"application/json"})
   var json = JSON.stringify({
@@ -203,8 +183,21 @@ response.writeHead(200, {"Content-Type":"application/json"})
         "order_number":"123456789",
         "currency":"INR",
         "payment_method":"PayTm karo",
-        "elements": inko
-       
+        "elements": inko,
+       "address":{
+          "street_1":"1 Hacker Way",
+          "street_2":"",
+          "city":"Menlo Park",
+          "postal_code":"94025",
+          "state":"CA",
+          "country":"US"
+        },
+         "summary":{
+          "subtotal":75.00,
+          "shipping_cost":4.95,
+          "total_tax":6.19,
+          "total_cost":56.14
+        }
       }
       }
     }
