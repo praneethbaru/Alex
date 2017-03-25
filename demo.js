@@ -204,7 +204,7 @@ function sendReceiptMessage(json, request, response)
                       {
                       "title":json.elements[i].title,
                       "subtitle":quant[prev%10-1],
-                      "quantity":1,
+                      "quantity":count,
                       "price":parseInt(json.elements[i].price[quant[prev%10-1]]),
                       "currency":"INR",
                       "image_url":json.elements[i].img_url
