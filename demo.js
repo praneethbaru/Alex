@@ -157,7 +157,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
   item.push({
             "title":imp.title[0],
             "image_url":imp.galleryURL[0],
-            "subtitle": JSON.stringify(imp.sellingStatus[0].currentPrice[0]["__value__"]),
+            "subtitle": "₹"+parseDouble(imp.sellingStatus[0].currentPrice[0]["__value__"])*68,
            "default_action": {
               "type": "web_url",
               "url":imp.viewItemURL[0],
