@@ -133,7 +133,7 @@ function sendShopping(req, response)
            {
     if(body!= null)
     {
-    console.log(body.toString())
+    
     sendShoppingMessage(body, req, response)
     }
            }//error
@@ -149,7 +149,8 @@ function sendShoppingMessage(body,request, response)
 var item=[]
 var i=0;
 response.writeHead(200, {"Content-Type":"application/json"})
-    body.findItemsByKeywordsResponse[0].searchResult[0].item.forEach ( function(imp) {
+    console.log(body)
+     body.findItemsByKeywordsResponse[0].searchResult[0].item.forEach ( function(imp) {
       if(i<10)
       {
            console.log(imp.shippingInfo[0])
