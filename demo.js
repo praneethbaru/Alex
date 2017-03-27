@@ -149,7 +149,7 @@ function sendShoppingMessage(body,request, response)
 var item=[]
 var i=0;
 response.writeHead(200, {"Content-Type":"application/json"})
-    console.log(body)
+    console.log(body.findItemsByKeywordsResponse[0].searchResult[0].item)
      body.findItemsByKeywordsResponse[0].searchResult[0].item.forEach ( function(imp) {
       if(i<10)
       {
