@@ -10,6 +10,19 @@ extended:true
 }))
 app.use(bodyparser.json())
      var cart = []
+     var home = {
+     lat : 17.4158359,
+     lon : 78.4926868
+     }
+     var office = {
+     lat :17.4548083,
+     lon : 78.664574 
+     }
+     var imax = {
+     lat : 17.4187065,
+     lon : 78.4458308
+     }
+     var places = ["home","office","imax"]
      var json = JSON.stringify(
      {
           "elements":
@@ -109,9 +122,64 @@ app.post('/webhook', function(request, response)
     {
   sendReceipt(cart,json, request,response);
   }
+      else if(request.body.result.action=="uber")
+    {
+  sendUber(request,response);
+  }
+}
+) //app.post
+
+function sendUber(request, response)
+{
+ var uber_query = request.body.result.resolvedQuery
+ uber_query = uber_query.replace("#uber","") 
+ var n = parseInt(uber_query)    
+     if(uber_query=="")
+          sendFrom(response)
+     else if(n>=0 &&n<3)
+          sendTo(n,response)
+}
+function sendFrom(response)
+{
+//from home or office
+     response.writeHead(200, {"Content-Type":"application/json"})
+ var json = JSON.stringify({
+    data:{
+//          "speech":"hi ",
+//          "displayText":"there is good news",
+  "facebook": {
+    "text":"from?",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"home",
+        "payload":"#uber 0"
+      },
+        {
+        "content_type":"text",
+        "title":"office",
+        "payload":"#uber 1"
+      }
+         {
+        "content_type":"text",
+        "title":"imax",
+        "payload":"#uber 2"
+      }
+    ]
+  }
+},
+    source : "text"
+  })
+  response.end(json)
+}
+function sendTo(n,response){
+
+}
+function sendPrice()
+{
+//send estimated time and price
 }
 
-) //app.post
 function sendReceipt(cart, json, request,response)
 {
   var r_query 
