@@ -153,7 +153,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
   item.push({
             "title":imp.title[0],
             "image_url":imp.galleryURL[0],
-            "subtitle":"₹"+imp.shippingInfo.shippingServiceCost["__value__"],
+            "subtitle":"₹"+imp.shippingInfo[0].shippingServiceCost["__value__"],
            "default_action": {
               "type": "web_url",
               "url":imp.viewItemURL[0],
