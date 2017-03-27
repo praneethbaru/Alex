@@ -153,7 +153,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
   item.push({
             "title":ink.title,
             "image_url":ink.galleryURL,
-             "subtitle":"₹"+ink.shippingInfo.shippingServiceCost("__value__"),
+            // "subtitle":"₹"+ink.shippingInfo.shippingServiceCost("__value__"),
            "default_action": {
               "type": "web_url",
               "url":ink.viewItemURL,
