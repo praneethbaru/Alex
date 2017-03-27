@@ -111,6 +111,7 @@ app.post('/webhook', function(request, response)
   }
       else if(request.body.result.action=="shopping")
     {
+         console.log(body)
   sendShopping(request,response);
   }
 }
@@ -132,6 +133,7 @@ function sendShopping(req, response)
            {
     if(body!= null)
     {
+    
     sendShoppingMessage(body, req, response)
     }
            }//error
@@ -180,7 +182,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
    },//data
     source : "text"
   })//json
-  console.log(json)
+  //console.log(json)
   console.log("YOVVVVVVVV")
   console.log(item)
   response.end(json)
