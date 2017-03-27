@@ -111,7 +111,7 @@ app.post('/webhook', function(request, response)
   }
       else if(request.body.result.action=="shopping")
     {
-         console.log(body)
+
   sendShopping(request,response);
   }
 }
@@ -133,7 +133,7 @@ function sendShopping(req, response)
            {
     if(body!= null)
     {
-    
+    console.log(body)
     sendShoppingMessage(body, req, response)
     }
            }//error
