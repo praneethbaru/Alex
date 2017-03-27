@@ -147,16 +147,16 @@ function sendShoppingMessage(body,request, response)
 var item=[]
 var i=0;
 response.writeHead(200, {"Content-Type":"application/json"})
-    body.findItemsByKeywordsResponse[0].searchResult[0].item.forEach ( function(ink) {
+    body.findItemsByKeywordsResponse[0].searchResult[0].item.forEach ( function(imp) {
       if(i<10)
       {
   item.push({
-            "title":ink.title,
-            "image_url":ink.galleryURL,
+            "title":imp.title,
+            "image_url":imp.galleryURL,
             // "subtitle":"₹"+ink.shippingInfo.shippingServiceCost("__value__"),
            "default_action": {
               "type": "web_url",
-              "url":ink.viewItemURL,
+              "url":imp.viewItemURL,
                }
   })//push
       i++
@@ -180,6 +180,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
     source : "text"
   })//json
   console.log(json)
+  console.log("YOVVVVVVVV")
   console.log(item)
   response.end(json)
 }//sendShopping
