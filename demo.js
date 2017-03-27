@@ -150,10 +150,11 @@ response.writeHead(200, {"Content-Type":"application/json"})
     body.findItemsByKeywordsResponse[0].searchResult[0].item.forEach ( function(imp) {
       if(i<10)
       {
+           console.log(imp.shippingInfo[0])
   item.push({
             "title":imp.title[0],
             "image_url":imp.galleryURL[0],
-            "subtitle":"₹"+imp.shippingInfo[0].shippingServiceCost[0]["__value__"],
+            "subtitle":"₹"+ parseInt(imp.shippingInfo[0].shippingServiceCost[0]["__value__"]),
            "default_action": {
               "type": "web_url",
               "url":imp.viewItemURL[0],
