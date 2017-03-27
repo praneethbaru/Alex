@@ -125,7 +125,7 @@ function sendShopping(req, response)
      if(shopping_query!=null)
      {
      request({
-    url:"http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=praneeth-alex-PRD-808fa563f-fc753e33&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords="+shopping_query+"&paginationInput.entriesPerPage=5",
+    url:"http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&GLOBAL-ID=EBAY-IN&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=praneeth-alex-PRD-808fa563f-fc753e33&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords="+shopping_query+"&paginationInput.entriesPerPage=5",
     json:true
   }, function(error, res, body)
           {
@@ -157,7 +157,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
   item.push({
             "title":imp.title[0],
             "image_url":imp.galleryURL[0],
-            "subtitle": "₹"+ parseFloat(imp.sellingStatus[0].currentPrice[0]["__value__"])*68,
+            "subtitle": "₹"+imp.sellingStatus[0].currentPrice[0]["__value__"],
            "default_action": {
               "type": "web_url",
               "url":imp.viewItemURL[0],
