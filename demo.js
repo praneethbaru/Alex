@@ -9,20 +9,7 @@ app.use(bodyparser.urlencoded({
 extended:true
 }))
 app.use(bodyparser.json())
-     var cart = []
-     var home = {
-     lat : 17.4158359,
-     lon : 78.4926868
-     }
-     var office = {
-     lat :17.4548083,
-     lon : 78.664574 
-     }
-     var imax = {
-     lat : 17.4187065,
-     lon : 78.4458308
-     }
-     var places = ["home","office","imax"]
+     
      var json = JSON.stringify(
      {
           "elements":
@@ -122,63 +109,80 @@ app.post('/webhook', function(request, response)
     {
   sendReceipt(cart,json, request,response);
   }
-      else if(request.body.result.action=="uber")
+      else if(request.body.result.action=="shopping")
     {
-  sendUber(request,response);
+  sendShopping(request,response);
   }
 }
 ) //app.post
 
-function sendUber(request, response)
+function sendShopping(req, response)
 {
- var uber_query = request.body.result.resolvedQuery
- uber_query = uber_query.replace("#uber","") 
- var n = parseInt(uber_query)    
-     if(uber_query=="")
-          sendFrom(response)
-     else if(n>=0 &&n<3)
-          sendTo(n,response)
-}
-function sendFrom(response)
-{
-//from home or office
-     response.writeHead(200, {"Content-Type":"application/json"})
- var json = JSON.stringify({
-    data:{
-//          "speech":"hi ",
-//          "displayText":"there is good news",
-  "facebook": {
-    "text":"from?",
-    "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"home",
-        "payload":"#uber 0"
-      },
-        {
-        "content_type":"text",
-        "title":"office",
-        "payload":"#uber 1"
-      },
-         {
-        "content_type":"text",
-        "title":"imax",
-        "payload":"#uber 2"
-      }
-    ]
+ var shopping_query = req.body.result.resolvedQuery
+ shopping_query = shopping_query.replace("#shopping ","") 
+ //var n = parseInt(uber_query)    
+     if(shopping_query!=null)
+     {
+     request({
+    url:"http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=praneeth-alex-PRD-808fa563f-fc753e33&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords="+shopping_query+"&paginationInput.entriesPerPage=5",
+    json:true
+  }, function(error, res, body)
+          {
+           if(!error)
+           {
+    if(body!= null)
+    {
+    sendShoppingMessage(body, req, response)
+    }
+           }//error
+           else
+           console.log(error)
   }
-},
-    source : "text"
-  })
-  response.end(json)
+         )
+     }
+        
 }
-function sendTo(n,response){
-
-}
-function sendPrice()
+function sendShoppingMessage(body,request, response)
 {
-//send estimated time and price
-}
+var item=[]
+var i=0;
+response.writeHead(200, {"Content-Type":"application/json"})
+    body.findItemsByKeywordsResponse[0].searchResult[0].item.forEach ( function(ink) {
+      if(i<10)
+      {
+  item.push({
+            "title":ink.title,
+            "image_url":ink.galleryURL,
+             "subtitle":"₹"+ink.shippingInfo.shippingServiceCost("__value__"),
+           "default_action": {
+              "type": "web_url",
+              "url":ink.viewItemURL,
+               }
+  })//push
+      i++
+    }//if
+  }//function
+  )//forEach
+     
+       
+  var json = JSON.stringify({
+   data:{
+   "facebook": {
+    "attachment": {
+      "type": "template",
+      "payload": {
+      "template_type":"generic",
+        "elements":item
+      }
+      }
+    }
+   },//data
+    source : "text"
+  })//json
+  console.log(json)
+  console.log(item)
+  response.end(json)
+}//sendShopping
 
 function sendReceipt(cart, json, request,response)
 {
@@ -379,7 +383,7 @@ function sendNews(req, response)
     
        if(news_query==" entertainment")
       source = "mashable" 
-  request({
+  ({
     url:"https://newsapi.org/v1/articles?source="+source+"&sortBy=top&apiKey=c0f1536a991945e8b0b19908517d7c72",
     json:true
   }, function(error, res, body)
