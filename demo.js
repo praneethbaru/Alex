@@ -375,7 +375,7 @@ function sendNews(req, response)
   else
   {
     var source = "bbc-news"
-    }
+    
     if(news_query==" general")
       source = "the-hindu"
     
@@ -406,7 +406,7 @@ function sendNews(req, response)
            console.log(error)
   }
          )
-  //}//else
+  }//else
       console.log("Bahubali 22222!!!!")  
 }//main function
 
