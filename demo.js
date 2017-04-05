@@ -371,10 +371,11 @@ function sendNews(req, response)
   {
   sendNewsQuickReplies(req, response)
   }
+  console.log("Bahubali!!!!")   
   else
   {
     var source = "bbc-news"
-    }
+    
     if(news_query==" general")
       source = "the-hindu"
     
@@ -405,7 +406,8 @@ function sendNews(req, response)
            console.log(error)
   }
          )
- // }//else
+  }//else
+      console.log("Bahubali 22222!!!!")  
 }//main function
 
 function sendNewsQuickReplies(request, response)
