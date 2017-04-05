@@ -367,8 +367,10 @@ function sendNews(req, response)
 
  news_query = news_query.replace("#news","")
     console.log("SendNews module #"+news_query)
+     console.log("The news query is ---->"+news_query)
   if(news_query=="")
   {
+       console.log("IN THE IF LOOOOP")
   sendNewsQuickReplies(req, response)
   }
   //console.log("Bahubali!!!!")   
