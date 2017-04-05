@@ -400,7 +400,7 @@ function sendNews(req, response)
   }, function(error, res, body)
           {
            if(!error)
-           {
+           {console.log("INTO THE ERROR PART"+body)
     if(body!= null)
     {
          console.log("ABOUT TO SEND THE MESSAGE")
