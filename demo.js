@@ -371,7 +371,7 @@ function sendNews(req, response)
   {
   sendNewsQuickReplies(req, response)
   }
-  console.log("Bahubali!!!!")   
+  //console.log("Bahubali!!!!")   
   else
   {
     var source = "bbc-news"
