@@ -395,18 +395,17 @@ function sendNews(req, response)
        if(news_query==" entertainment")
       source = "mashable" 
        
-       console.log("THE SOURCE IS"+source)
+       //console.log("THE SOURCE IS"+source)
   ({
     url:"https://newsapi.org/v1/articles?source="+source+"&sortBy=top&apiKey=c0f1536a991945e8b0b19908517d7c72",
     json:true
           
-  }, function(error, response, body)
-          {  console.log("url"+url)
+  }, function(error, res, body)
+          {  
            if(!error)
-           {console.log("INTO THE NO ERROR PART")
+           {
     if(body!= null)
     {
-         console.log("ABOUT TO SEND THE MESSAGE")
     sendNewsMessage(body, req, response)
     }
            }//error
@@ -415,7 +414,7 @@ function sendNews(req, response)
   }
          )
   }//else
-      console.log("Bahubali 22222!!!!")  
+      console.log("END OF NEWS MODULE")  
 }//main function
 
 function sendNewsQuickReplies(req, response)
@@ -423,8 +422,7 @@ function sendNewsQuickReplies(req, response)
   response.writeHead(200, {"Content-Type":"application/json"})
  var json = JSON.stringify({
     data:{
-//          "speech":"hi ",
-//          "displayText":"there is good news",
+
   "facebook": {
     "text":"Select a category",
     "quick_replies":[
