@@ -394,6 +394,8 @@ function sendNews(req, response)
     
        if(news_query==" entertainment")
       source = "mashable" 
+       
+       console.log("THE SOURCE IS"+source)
   ({
     url:"https://newsapi.org/v1/articles?source="+source+"&sortBy=top&apiKey=c0f1536a991945e8b0b19908517d7c72",
     json:true
@@ -401,7 +403,7 @@ function sendNews(req, response)
   }, function(error, response, body)
           {  console.log("url"+url)
            if(!error)
-           {console.log("INTO THE ERROR PART")
+           {console.log("INTO THE NO ERROR PART")
     if(body!= null)
     {
          console.log("ABOUT TO SEND THE MESSAGE")
