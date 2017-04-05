@@ -450,10 +450,10 @@ function sendNewsQuickReplies(request, response)
   })
   response.end(json)
 }
-function sendNewsMessage(body, request, response)
+function sendNewsMessage(body, req, response)
 {
 //var img="http://www.omgubuntu.co.uk/wp-content/uploads/2013/12/Flat-Weather-Icon-Set.png"
- console.log("NEWS MODULE ")
+ console.log("NEWS MODULE ENTERED ")
 response.writeHead(200, {"Content-Type":"application/json"})
   var inko = []
   console.log(body)
