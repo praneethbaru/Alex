@@ -396,7 +396,7 @@ function sendNews(req, response)
       source = "mashable" 
        
        //console.log("THE SOURCE IS"+source)
-  ({
+  request({
     url:"https://newsapi.org/v1/articles?source="+source+"&sortBy=top&apiKey=c0f1536a991945e8b0b19908517d7c72",
     json:true
           
