@@ -398,7 +398,7 @@ function sendNews(req, response)
     url:"https://newsapi.org/v1/articles?source="+source+"&sortBy=top&apiKey=c0f1536a991945e8b0b19908517d7c72",
     json:true
           
-  }, function(error, res, body)
+  }, function(error, response, body)
           {  console.log("url"+url)
            if(!error)
            {console.log("INTO THE ERROR PART")
