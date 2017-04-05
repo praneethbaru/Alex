@@ -366,7 +366,7 @@ function sendNews(req, response)
   news_query = req.body.result.resolvedQuery
 
  news_query = news_query.replace("#news","")
-    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+news_query)
+    console.log("SendNews module #"+news_query)
   if(news_query=="")
   {
   sendNewsQuickReplies(req, response)
@@ -374,6 +374,7 @@ function sendNews(req, response)
   else
   {
     var source = "bbc-news"
+    }
     if(news_query==" general")
       source = "the-hindu"
     
@@ -404,8 +405,8 @@ function sendNews(req, response)
            console.log(error)
   }
          )
-  }
-}
+ // }//else
+}//main function
 
 function sendNewsQuickReplies(request, response)
 {
