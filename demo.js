@@ -376,6 +376,8 @@ function sendNews(req, response)
   //console.log("Bahubali!!!!")   
   else
   {
+       console.log("IN THE ELSE LOOP NOW")
+       console.log(""+news_query)
     var source = "bbc-news"
     
     if(news_query==" general")
