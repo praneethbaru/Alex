@@ -403,6 +403,7 @@ function sendNews(req, response)
            {
     if(body!= null)
     {
+         console.log("ABOUT TO SEND THE MESSAGE")
     sendNewsMessage(body, req, response)
     }
            }//error
