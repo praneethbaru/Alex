@@ -410,7 +410,7 @@ function sendNews(req, response)
       console.log("Bahubali 22222!!!!")  
 }//main function
 
-function sendNewsQuickReplies(request, response)
+function sendNewsQuickReplies(req, response)
 {
   response.writeHead(200, {"Content-Type":"application/json"})
  var json = JSON.stringify({
