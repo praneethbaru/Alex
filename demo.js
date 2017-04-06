@@ -734,7 +734,7 @@ word_query = req.body.result.resolvedQuery
                              console.log(word_description)
     link = wdata.results[0].lexicalEntries[0].pronunciations[0].audioFile;
                             // sendMessage(word_description, response)
-                            // sendQuick(word_description, response, link)
+                             sendQuick(word_description, response, link)
 
   });
 }
