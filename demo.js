@@ -746,13 +746,13 @@ function sendQuick(text, response, link)
     data:{
   "facebook": {
     "text":text,
-    "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"audio",
-        "payload":"#audio "+  link
-      }
-    ]
+//     "quick_replies":[
+//       {
+//         "content_type":"text",
+//         "title":"audio",
+//         "payload":"#audio "+  link
+//       }
+//     ]
   }
 },
     source : "text"
