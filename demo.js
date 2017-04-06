@@ -730,11 +730,11 @@ word_query = req.body.result.resolvedQuery
     var word_description = "Word: "+wdata.results[0].id+" "+"( "+wdata.results[0].lexicalEntries[0].lexicalCategory+" )\r\n"
                             +wdata.results[0].lexicalEntries[0].pronunciations[0].phoneticSpelling+"\r\n"+
                              "Meaning: "+wdata.results[0].lexicalEntries[0].entries[0].senses[0].definitions[0]+"\r\n"+
-                             "Example: " +wdata.results[0].lexicalEntries[0].entries[0].senses[0].examples[0].text
+                             "Example: " +wdata.results[0].lexicalEntries[0].entries[0].senses[0].examples[0].text+"."
                              console.log(word_description)
     link = wdata.results[0].lexicalEntries[0].pronunciations[0].audioFile;
                             // sendMessage(word_description, response)
-                             sendQuick(word_description, response, link)
+                            // sendQuick(word_description, response, link)
 
   });
 }
