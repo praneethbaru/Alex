@@ -782,7 +782,7 @@ response.writeHead(200, {"Content-Type":"application/json"})
   inko.push({
             "title":ink.volumeInfo.title,
             "image_url":ink.volumeInfo.imageLinks.thumbnail,
-             "subtitle":"author: " + ink.volumeInfo.authors+ ", Category: "  + ink.volumeInfo.categories +", Rating: " + ink.volumeInfo.averageRating,
+             "subtitle":"Author: " + ink.volumeInfo.authors+ "\r\nCategory: "  + ink.volumeInfo.categories +", Rating: " + ink.volumeInfo.averageRating,
            "default_action": {
               "type": "web_url",
               "url": ink.volumeInfo.infoLink,
