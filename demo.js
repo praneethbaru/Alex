@@ -107,7 +107,8 @@ app.post('/webhook', function(request, response)
   }
   else if(request.body.result.action=="receipt")
     {
-  sendReceipt(cart,json, request,response);
+         //cart
+  sendReceipt(json, request,response);
   }
       else if(request.body.result.action=="shopping")
     {
