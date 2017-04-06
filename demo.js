@@ -73,6 +73,7 @@ app.use(bodyparser.json())
      }
 )
 json = JSON.parse(json)
+var cart = []
 //start
 app.post('/webhook', function(request, response)
 {
