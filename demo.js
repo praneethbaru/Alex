@@ -101,7 +101,7 @@ app.post('/webhook', function(request, response)
     {
   sendVideo(request,response);
   }
-   else if(request.body.result.action=="news")
+   else if(request.body.result.action=="news"&&request.body.result.resolvedQuery.includes("#news"))
     {
   
         sendNews(request,response);
